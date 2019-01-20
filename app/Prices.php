@@ -1,0 +1,18 @@
+<?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Prices extends Model
+{
+    protected $table = "prices";
+
+    protected $guarded = [
+        'id'
+    ];
+
+    protected $hidden = [
+
+    ];
+}
