@@ -25,6 +25,9 @@ Route::get('/tarifs', 'PricesController@index')->name('front.prices');
 // mentions légales
 Route::get('mentions-legales', 'MentionsController@index')->name('mentions');
 
+// Contact
+Route::get('contact', 'Admin\ContactController@create')->name('contact.create');
+Route::post('contact', 'Admin\ContactController@store')->name('contact.store');
 
 // blog
 Route::get('blog', 'PostsController@index')->name('front.blog.index');
@@ -41,8 +44,6 @@ Route::post('/login', 'Auth\LoginController@store')->name('login.store');
 Route::group(['prefix' => 'admin',  'middleware' => ['role:admin']], function()
 {
     Route::get('/', 'Admin\DashboardController@index')->name('dashboard.index');
-    //Route::any('user-data', 'Admin\UsersController@ajaxListing')->name('datatables.data');
-    //Route::any('blog-data', 'Admin\PostsController@ajaxListing')->name('datatables.blogData');
 
     // route page d'accueil
     Route::resource('homepage', 'Admin\HomeController');
@@ -55,8 +56,11 @@ Route::group(['prefix' => 'admin',  'middleware' => ['role:admin']], function()
 
     Route::resource('blog', 'Admin\PostsController');
 
+    Route::get('message', 'Admin\ContactController@index')->name('contact.index');
+    Route::get('message/:id', 'Admin\ContactController@show')->name('contact.show');
+    Route::delete('contact', 'Admin\ContactController@delete')->name('contact.delete');
+
     // users, profile
-    //Route::get('users/{user}/delete', 'Admin\UsersController@destroy')->name('users.destroy');
     Route::resource('users', 'Admin\UsersController', ['except' => 'destroy']);
 
 });

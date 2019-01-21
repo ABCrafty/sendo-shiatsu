@@ -56,8 +56,8 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
-        'name' => env('MAIL_FROM_NAME', 'Example'),
+        'address' => env('MAIL_FROM_ADDRESS', 'contact@sendo-shiatsu.com'),
+        'name' => env('MAIL_FROM_NAME', 'Contact'),
     ],
 
     /*
@@ -132,5 +132,20 @@ return [
     */
 
     'log_channel' => env('MAIL_LOG_CHANNEL'),
+
+    /*
+    |--------------------------------------------------------------------------
+    | Credentials
+    |--------------------------------------------------------------------------
+    |
+    | Used to log into MailGun and use their services.
+    |
+     */
+
+    'mailgun' => [
+        'domain' => env('MAIL_HOST'),
+        'secret' => env('MAIL_PASSWORD'),
+        'endpoint' => 'api.eu.mailgun.net',
+    ],
 
 ];
