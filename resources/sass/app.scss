@@ -3,11 +3,16 @@
 @import url('~@fortawesome/fontawesome-free/css/all.css');
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 
-// Variables
+// partials
 @import 'variables';
+@import 'layout';
+@import 'homepage';
+@import 'responsive';
 
 // Bootstrap
 @import '~bootstrap/dist/css/bootstrap.min.css';
+
+
 
 .navbar-laravel {
   background-color: #fff;
