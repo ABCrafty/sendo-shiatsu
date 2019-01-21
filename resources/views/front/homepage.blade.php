@@ -1,27 +1,27 @@
-@extends('layouts.front-layout)
+@extends('layouts.front-layout')
 
 @section('title')
-
+    Accueil - @parent
 @endsection
 
 @section('content')
 
-<div class="activites-home">
-    <div class="home-shiatsu">
-        <h1>Shiatsu</h1>
-        <p>blabla</p>
-        <button class="discover">
-            Découvrez le Shiatsu
-        </button>
-    </div>
-    <div class="home-doin">
-        <h2>Do In</h2>
-        <p>blabla</p>
-        <button class="discover">
-            Découvrez le Do In
-        </button>
-    </div>
-</div> <!-- activites-home -->
+    <div class="activites-home">
+        <div class="home-shiatsu">
+            <h1>Shiatsu</h1>
+            <p>blabla</p>
+            <button class="discover">
+                Découvrez le Shiatsu
+            </button>
+        </div>
+        <div class="home-doin">
+            <h2>Do In</h2>
+            <p>blabla</p>
+            <button class="discover">
+                Découvrez le Do In
+            </button>
+        </div>
+    </div> <!-- activites-home -->
 
     <h3>Mes prestations</h3>
 

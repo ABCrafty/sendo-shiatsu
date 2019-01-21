@@ -19,7 +19,7 @@
                 <a class="nav-link" href="">Do In</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="">Qui suis-je ?</a>
+                <a class="nav-link" href="">Prestations/Prendre rdv</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="">Tarifs</a>
@@ -28,7 +28,7 @@
                 <a class="nav-link" href="">Me contacter</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="">Blog</a>
+                <a class="nav-link" id="blog-nav" href="">Blog</a>
             </li>
 
             @role('admin')
@@ -44,11 +44,11 @@
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            {{ auth()->user()->username }}
+                            Username
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                             @role('admin')
-                            <a class="dropdown-item" href="{{ route('users.edit', auth()->user()->id) }}">Voir mon profil</a>
+                            <a class="dropdown-item" href="#">Voir mon profil</a>
                             @endrole
                             <a class="dropdown-item" href="{{ route('logout') }}">Me déconnecter</a>
 

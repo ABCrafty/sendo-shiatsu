@@ -20,6 +20,9 @@ Route::get('/shiatsu', 'ShiatsuController@index')->name('front.shiatsu');
 // do-in page
 Route::get('/do-in', 'DoInController@index')->name('front.doin');
 
+//prestations
+Route::get('/prestations', 'PrestationsController@index')->name('front.prestations');
+
 Route::get('/tarifs', 'PricesController@index')->name('front.prices');
 
 // mentions légales
