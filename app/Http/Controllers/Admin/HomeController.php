@@ -7,9 +7,8 @@ use App\Http\Controllers\Controller;
 
 class HomeController extends Controller
 {
-    public function __construct()
-    {
-    }
+    public function __construct() {}
+
     public function edit($id) {
         $contentExists = Homepage::first();
         $homepage = Homepage::findOrFail($id);

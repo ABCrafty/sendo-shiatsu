@@ -21,7 +21,7 @@
 
     <title>
         @yield('title')
-        Alexandre Black Portfolio
+        Send Shiatsu
         @show
     </title>
 

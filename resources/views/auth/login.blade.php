@@ -1,40 +1,73 @@
 @extends('layouts.app')
-@section('title')
-    Connexion - @parent
-@endsection
 
 @section('content')
-    <div class="login-container">
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">{{ __('Login') }}</div>
 
-        <h1>Se connecter</h1>
+                <div class="card-body">
+                    <form method="POST" action="{{ route('login') }}">
+                        @csrf
 
+                        <div class="form-group row">
+                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
-        {!! Form::open(['route' => ['login'], 'method' => 'post',
-                'enctype' => 'multipart/form-data', 'role' => 'form', 'class' => ' form-bordered form-horizontal']) !!}
+                            <div class="col-md-6">
+                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
 
-        @include('layouts.errors._errors')
-        <div class="form-group form-custom <?php if($errors->has('email')) { echo 'has-danger';} ?>">
-            <div class="col-3">
-                {!! Form::label('email', 'Email', ['class' => 'control-label']) !!}
-            </div>
-            <div class="col-12">
-                {!! Form::text('email', null, ['class' => 'form-control']) !!}
-                {!! $errors->first('email', '<span class="help-block">Ce champ est obligatoire</span>') !!}
+                                @if ($errors->has('email'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+
+                                @if ($errors->has('password'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-md-6 offset-md-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+
+                                    <label class="form-check-label" for="remember">
+                                        {{ __('Remember Me') }}
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row mb-0">
+                            <div class="col-md-8 offset-md-4">
+                                <button type="submit" class="btn btn-primary">
+                                    {{ __('Login') }}
+                                </button>
+
+                                @if (Route::has('password.request'))
+                                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                                        {{ __('Forgot Your Password?') }}
+                                    </a>
+                                @endif
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
-
-        <div class="form-group form-custom <?php if($errors->has('password')) { echo 'has-danger';} ?>">
-            <div class="col-6">
-                {!! Form::label('password', 'Mot de passe', ['class' => 'control-label']) !!}
-            </div>
-            <div class="col-12 password-field">
-                {!! Form::password('password', null, ['class' => 'form-control']) !!}
-                {!! $errors->first('password', '<span class="help-block">Ce champ est obligatoire</span>') !!}
-            </div>
-        </div>
-
-        <button type="submit" class="btn blue-button">Se connecter</button>
-
-        {!! Form::close() !!}
     </div>
+</div>
 @endsection

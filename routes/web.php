@@ -20,7 +20,6 @@ Route::get('/shiatsu', 'ShiatsuController@index')->name('front.shiatsu');
 // do-in page
 Route::get('/do-in', 'DoInController@index')->name('front.doin');
 
-
 Route::get('/tarifs', 'PricesController@index')->name('front.prices');
 
 // mentions légales
@@ -31,13 +30,10 @@ Route::get('mentions-legales', 'MentionsController@index')->name('mentions');
 Route::get('blog', 'PostsController@index')->name('front.blog.index');
 Route::get('blog/{post}', 'PostsController@show')->name('front.blog.show');
 
-
 // Authentification
-Route::get('/register', 'Auth\RegisterController@create')->name('register.create');
 Route::get('/login', 'Auth\LoginController@create')->name('login');
 Route::get('/logout', 'Auth\LoginController@destroy')->name('logout');
 Route::get('/password-request', 'Auth\LoginController@lostPassword')->name('password.request');
-Route::post('/register', 'Auth\RegisterController@store')->name('register.store');
 Route::post('/login', 'Auth\LoginController@store')->name('login.store');
 
 
@@ -57,12 +53,10 @@ Route::group(['prefix' => 'admin',  'middleware' => ['role:admin']], function()
 
     Route::resource('do-in', 'Admin\PricesController');
 
+    Route::resource('blog', 'Admin\PostsController');
+
     // users, profile
     //Route::get('users/{user}/delete', 'Admin\UsersController@destroy')->name('users.destroy');
-    //Route::resource('users', 'Admin\UsersController', ['except' => 'destroy']);
+    Route::resource('users', 'Admin\UsersController', ['except' => 'destroy']);
 
-
-    // blog
-    Route::get('blog/{blog}/delete', 'Admin\PostsController@destroy')->name('blog.destroy');
-    Route::resource('blog', 'Admin\PostsController', ['except' => 'destroy']);
 });

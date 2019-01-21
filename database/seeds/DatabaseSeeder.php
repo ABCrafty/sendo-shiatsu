@@ -25,20 +25,20 @@ class DatabaseSeeder extends Seeder
             'username' => 'Alex',
             'email' => 'someadress@example.com',
             'description' => '',
-            'password' => 'password'
+            'password' => bcrypt('password')
         ]);
         $secondAdmin = User::create([
             'username' => 'Pierre',
             'email' => 'randomadress@example.com',
             'description' => '',
-            'password' => 'password'
+            'password' => bcrypt('password')
         ]);
 
         $guestOne = User::create([
             'username' => 'Guest',
             'email' => 'randomguest@example.com',
             'description' => '',
-            'password' => 'password'
+            'password' => bcrypt('password')
         ]);
         $this->command->warn("Users created successfully");
 

@@ -3,20 +3,6 @@
 <html lang="{{ config('app.locale') }}">
 
 <head>
-
-    <meta name="description" content="Site portfolio d'Alexandre Black | Contient un portfolio et des articles">
-    <meta name="keyword" content="Alexandre Black, Lyon, Developpeur, Web, PHP, JavaScript, jQuery, Bootstrap, SASS">
-    <meta name="twitter:site" content="@Kuro_KD"/>
-    <meta name="twitter:image" content="{{ asset('images/logo.png') }}"/>
-    <meta property="og:title" content="Alexandre Black">
-    <meta property="og:description" content="Site portfolio d'Alexandre Black | Contient un portfolio et des articles"/>
-    <meta property="og:image" content="{{ asset('images/logo.png') }}"/>
-    <meta property="og:url" content="http://www.alexandreblack.fr" />
-    <meta property="og:site_name" content="Alexandre Black" />
-    <meta property="og:type" content="website" />
-    <meta name="geo.region" content="FR" />
-    <meta name="geo.placename" content="Lyon" />
-    <meta name="robots" content="noindex, nofollow">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 
     <!-- CSRF Token -->
@@ -86,38 +72,11 @@
                             <a href="{{ route('dashboard.index') }}">Tableau de bord</a>
                         </span>
                     </li>
-                    @if($homepage)
-                        <li>
-                            <i class="fa fa-home" aria-hidden="true"></i>
-                            <span class="show-sidebar">
-                                <a href="{{ route('homepage.edit', ['id' => $homepage->id]) }}">Page d'accueil</a>
-                            </span>
-                        </li>
-                    @else
-                        <li>
-                            <i class="fa fa-home" aria-hidden="true"></i>
-                            <span class="show-sidebar">
-                                <a href="{{ route('homepage.create') }}">Page d'accueil</a>
-                            </span>
-                        </li>
-                    @endif
-                    <li>
-                        <i class="fa fa-book" aria-hidden="true"></i>
-                        <span class="show-sidebar">
-                            <a href="{{ route('projects.index') }}">Projets</a>
-                        </span>
-                    </li>
                     <li>
                         <i class="fa fa-pencil-square" aria-hidden="true"></i>
                         <span class="show-sidebar">
                                 <a href="{{ route('blog.index') }}">Blog</a>
                             </span>
-                    </li>
-                    <li>
-                        <i class="fa fa-user" aria-hidden="true"></i>
-                        <span class="show-sidebar">
-                            <a href="{{ route('users.index') }}">Utilisateurs</a>
-                        </span>
                     </li>
                 </ul>
             </div>

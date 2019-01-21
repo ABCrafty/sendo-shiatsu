@@ -44,7 +44,7 @@ class LoginController extends Controller
         if(!auth()->attempt(request(['email', 'password']))) {
             return back();
         };
-        session()->flash('message', 'Bon retour parmi nous '. auth()->user()->username.' !');
+        session()->flash('message', 'Bon retour parmi nous, '. auth()->user()->username.' !');
         return redirect()->home();
     }
 
