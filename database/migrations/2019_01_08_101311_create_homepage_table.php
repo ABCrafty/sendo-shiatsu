@@ -23,7 +23,7 @@ class CreateHomepageTable extends Migration
             $table->string('first-presta-content');
             $table->string('second-presta-title');
             $table->string('second-presta-content');
-            $table->string('third-presta-content');
+            $table->string('third-presta-title');
             $table->string('third-presta-content');
             $table->timestamps();
         });

@@ -29,8 +29,8 @@ Route::get('/tarifs', 'PricesController@index')->name('front.prices');
 Route::get('mentions-legales', 'MentionsController@index')->name('mentions');
 
 // Contact
-Route::get('contact', 'Admin\ContactController@create')->name('contact.create');
-Route::post('contact', 'Admin\ContactController@store')->name('contact.store');
+Route::get('contact', 'ContactController@create')->name('contact.create');
+Route::post('contact', 'ContactController@store')->name('contact.store');
 
 // blog
 Route::get('blog', 'PostsController@index')->name('front.blog.index');

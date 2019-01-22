@@ -15,12 +15,12 @@ class CreateDoinTable extends Migration
     {
         Schema::create('doin', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('first-paragraph-title');
-            $table->text('first-paragraph-content');
-            $table->string('second-paragraph-title');
-            $table->text('second-paragraph-content');
-            $table->string('third-paragraph-title');
-            $table->text('third-paragraph-content');
+            $table->string('first_paragraph_title');
+            $table->text('first_paragraph_content');
+            $table->string('second_paragraph_title');
+            $table->text('second_paragraph_content');
+            $table->string('third_paragraph_title');
+            $table->text('third_paragraph_content');
             $table->string('wellness');
             $table->text('image');
             $table->timestamps();

@@ -25,7 +25,7 @@
                 <a class="nav-link" href="">Tarifs</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="">Me contacter</a>
+                <a class="nav-link" href="{{ route('contact.create') }}">Me contacter</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" id="blog-nav" href="">Blog</a>
