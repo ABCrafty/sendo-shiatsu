@@ -9,7 +9,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 
-<body>
+<body class="admin">
 
 @if($flash = session('message'))
     <div class="alert alert-success alert-admin animated bounceInRight" role="alert">
@@ -57,6 +57,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="">Blog</a>
             </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">Témoignages</a>
+            </li>
         </ul>
         <div class="my-2 my-lg-0">
             <ul class="navbar-nav mr-auto">
@@ -73,8 +76,8 @@
     </div>
 </nav>
 
-<div class="container-fluid">
-
+<div class="container">
+@yield('content')
 </div>
 <!-- Scripts -->
 <script src="{{ asset('js/app.js') }}"></script>

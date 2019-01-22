@@ -1,18 +1,16 @@
+// Bootstrap
+@import '~bootstrap/dist/css/bootstrap.min.css';
 
 // Fonts
 @import url('~@fortawesome/fontawesome-free/css/all.css');
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 
 // partials
-@import 'variables';
-@import 'layout';
-@import 'homepage';
-@import 'responsive';
-
-// Bootstrap
-@import '~bootstrap/dist/css/bootstrap.min.css';
-
-
+@import 'partials/variables';
+@import 'partials/layout';
+@import 'partials/_admin';
+@import 'partials/homepage';
+@import 'partials/responsive';
 
 .navbar-laravel {
   background-color: #fff;

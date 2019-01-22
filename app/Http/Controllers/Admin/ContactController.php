@@ -15,7 +15,7 @@ class ContactController extends Controller
     public function index ()
     {
         $messages = Contact::all();
-        return view('contact.index', ['messages' => $messages]);
+        return view('admin.contact.index', ['messages' => $messages]);
     }
 
     public function create ()
@@ -59,24 +59,22 @@ class ContactController extends Controller
 
     }
 
-    public function show ($id)
+    public function show (Request $request)
     {
-        $message = Contact::find($id);
+        $message = Contact::find($request->data['id']);
         if (!$message->lu) {
             $message->lu = true;
             $message->save();
         }
 
-        return view('contact.show', ['message' => $message]);
+        return response()->json($message);
     }
 
-    public function delete ($id)
+    public function delete (Request $request)
     {
-        $message = Contact::find($id);
+        $message = Contact::find($request->id);
         $message->delete();
-        session()->flash('success','Message supprimé avec succès.');
-
-        return redirect()->route('contact.index');
+        return response()->json('ok');
     }
 
 }

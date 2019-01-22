@@ -60,8 +60,8 @@ Route::group(['prefix' => 'admin',  'middleware' => ['role:admin']], function()
     Route::resource('blog', 'Admin\PostsController');
 
     Route::get('message', 'Admin\ContactController@index')->name('contact.index');
-    Route::get('message/:id', 'Admin\ContactController@show')->name('contact.show');
-    Route::delete('contact', 'Admin\ContactController@delete')->name('contact.delete');
+    Route::post('message', 'Admin\ContactController@show')->name('contact.show');
+    Route::delete('message', 'Admin\ContactController@delete')->name('contact.delete');
 
     // users, profile
     Route::resource('users', 'Admin\UsersController', ['except' => 'destroy']);

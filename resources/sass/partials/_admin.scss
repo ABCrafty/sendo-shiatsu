@@ -1,0 +1,27 @@
+.admin {
+  .navbar {
+    margin-bottom: 40px;
+  }
+
+  .messages {
+    table {
+      margin-top: 30px;
+
+      tr {
+        &.read {
+          background-color: rgba(0,0,0,.075);
+        }
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+
+    #showMessage {
+      .message-content {
+        margin-top: 15px;
+      }
+    }
+  }
+}
