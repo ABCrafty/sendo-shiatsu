@@ -15,16 +15,16 @@ class CreateHomepageTable extends Migration
     {
         Schema::create('homepage', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('shiatsu-text');
-            $table->string('shiatsu-image');
-            $table->string('doin-text');
-            $table->string('doin-image');
-            $table->string('first-presta-title');
-            $table->string('first-presta-content');
-            $table->string('second-presta-title');
-            $table->string('second-presta-content');
-            $table->string('third-presta-title');
-            $table->string('third-presta-content');
+            $table->string('shiatsu_text');
+            $table->string('shiatsu_image');
+            $table->string('doin_text');
+            $table->string('doin_image');
+            $table->string('first_presta_title');
+            $table->string('first_presta_content');
+            $table->string('second_presta_title');
+            $table->string('second_presta_content');
+            $table->string('third_presta_title');
+            $table->string('third_presta_content');
             $table->timestamps();
         });
     }

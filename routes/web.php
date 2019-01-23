@@ -49,13 +49,16 @@ Route::group(['prefix' => 'admin',  'middleware' => ['role:admin']], function()
     Route::get('/', 'Admin\DashboardController@index')->name('dashboard.index');
 
     // route page d'accueil
-    Route::resource('homepage', 'Admin\HomeController');
+    Route::get('accueil', 'Admin\HomeController@show')->name('admin.homepage');
+    Route::post('accueil', 'Admin\HomeController@update')->name('admin.homepage.update');
+
+    Route::get('shiatsu', 'Admin\ShiatsuController@show')->name('admin.shiatsu.show');
+    Route::post('shiatsu', 'Admin\ShiatsuController@update')->name('admin.shiatsu.update');
+
+    Route::get('do-in', 'Admin\DoInController@show')->name('admin.doin.show');
+    Route::post('do-in', 'Admin\DoInController@update')->name('admin.doin.update');
 
     Route::resource('tarifs', 'Admin\PricesController');
-
-    Route::resource('shiatsu', 'Admin\ShiatsuController');
-
-    Route::resource('do-in', 'Admin\PricesController');
 
     Route::resource('blog', 'Admin\PostsController');
 

@@ -3,6 +3,25 @@
     margin-bottom: 40px;
   }
 
+  .homepage {
+    #tabulations {
+      justify-content: center;
+    }
+
+    #prestations, #shiatsu, #doin {
+      margin-top: 30px;
+
+      .form-group .col-form-label {
+        text-align: right;
+      }
+
+      .preview-shiatsu, .preview-doin {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+    }
+  }
+
   .messages {
     table {
       margin-top: 30px;

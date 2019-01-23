@@ -7,6 +7,32 @@ $.ajaxSetup({
     }
 });
 
+/* GESTION DES PREVIEWS DANS LA PAGE D'ACCUEIL */
+
+$('#shiatsu_image').on('change', function(e) {
+    $('.preview-shiatsu').empty();
+    const file = e.target.files[0];
+    let reader = new FileReader();
+    let url = '';
+    reader.onload = (e) => {
+        url = e.target.result;
+        $('.preview-shiatsu').append(`<img src="${url}" />`)
+    };
+    reader.readAsDataURL(file);
+});
+
+$('#doin_image').on('change', function(e) {
+    $('.preview-doin').empty();
+    const file = e.target.files[0];
+    let reader = new FileReader();
+    let url = '';
+    reader.onload = (e) => {
+        url = e.target.result;
+        $('.preview-doin').append(`<img src="${url}" />`)
+    };
+    reader.readAsDataURL(file);
+});
+
 /* GESTION DES MESSAGES */
 let $id = 0;
 

@@ -10520,6 +10520,82 @@ module.exports = g;
 
 __webpack_require__(/*! bootstrap/dist/js/bootstrap.bundle.min */ "./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js");
 
+window.$ = window.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+$.ajaxSetup({
+  headers: {
+    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+  }
+});
+/* GESTION DES PREVIEWS DANS LA PAGE D'ACCUEIL */
+
+$('#shiatsu_image').on('change', function (e) {
+  $('.preview-shiatsu').empty();
+  var file = e.target.files[0];
+  var reader = new FileReader();
+  var url = '';
+
+  reader.onload = function (e) {
+    url = e.target.result;
+    $('.preview-shiatsu').append("<img src=\"".concat(url, "\" />"));
+  };
+
+  reader.readAsDataURL(file);
+});
+$('#doin_image').on('change', function (e) {
+  $('.preview-doin').empty();
+  var file = e.target.files[0];
+  var reader = new FileReader();
+  var url = '';
+
+  reader.onload = function (e) {
+    url = e.target.result;
+    $('.preview-doin').append("<img src=\"".concat(url, "\" />"));
+  };
+
+  reader.readAsDataURL(file);
+});
+/* GESTION DES MESSAGES */
+
+var $id = 0;
+$('.admin .messages table tbody tr td:not(:last-child)').on('click', function () {
+  $id = $(this).parent().attr('data-id');
+  $.post('/admin/message', {
+    data: {
+      id: $id
+    }
+  }).done(function (data) {
+    var d = new Date(data.created_at);
+    $('#showMessage span.message-email').empty().append("<b>Exp\xE9diteur :</b> ".concat(data.email));
+    $('#showMessage span.message-sujet').empty().append("<b>Sujet :</b> ".concat(data.sujet));
+    $('#showMessage span.message-date').empty().append("<b>Le :</b> ".concat(d.toLocaleDateString()));
+    $('#showMessage .message-content').empty().append(data.message.replace(/\n/g, "<br />"));
+    $("tr[data-id='".concat($id, "']")).removeClass('pending').addClass('read');
+    $('#showMessage').attr('data-id', $id).modal();
+  });
+});
+$('#showMessage .btn-danger').on('click', function () {
+  $('#confirmDelete').modal();
+});
+$('#confirmDelete .btn-danger').on('click', function () {
+  console.log('click');
+  $.ajax({
+    url: '/admin/message',
+    type: 'DELETE',
+    data: {
+      id: $id
+    }
+  }).done(function (data) {
+    if (data === 'ok') {
+      $('#confirmDelete').modal('hide');
+      $("tr[data-id='".concat($id, "']")).hide();
+    }
+  });
+});
+$('tr .btn-danger').on('click', function () {
+  $id = $(this).parent().parent().attr('data-id');
+  $('#confirmDelete').modal();
+});
+
 /***/ }),
 
 /***/ "./resources/sass/app.scss":

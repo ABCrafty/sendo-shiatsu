@@ -14,7 +14,7 @@ class ContactController extends Controller
     public function index ()
     {
         $messages = Contact::all();
-        return view('admin.contact.index', ['messages' => $messages]);
+        return view('admin.contact', ['messages' => $messages]);
     }
 
     public function show (Request $request)
