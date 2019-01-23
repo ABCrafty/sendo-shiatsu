@@ -85,11 +85,6 @@ $('tr .btn-danger').on('click', function() {
 $('#new').submit(function(e) {
     e.preventDefault();
 
-    let formData = new FormData();
-    formData.append('title', document.getElementById('c_title').value);
-    formData.append('author', document.getElementById('c_author').value);
-    formData.append('content', document.getElementById('c_content').value);
-
     $.post('/admin/temoignage', {
         title: document.getElementById('c_title').value,
         author: document.getElementById('c_author').value,
