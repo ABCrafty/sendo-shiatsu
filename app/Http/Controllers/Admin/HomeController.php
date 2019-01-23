@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
 use App\Homepage;
@@ -55,17 +56,13 @@ class HomeController extends Controller
                 $homepage = new Homepage;
             }
 
-            if ($request->hasFile('shiatsu_image')) {
-                $request->shiatsu_image = $request->file('shiatsu_image')->storeAs('images', $request->file('shiatsu_image')->getClientOriginalName());
-            } else {
-                $request->shiatsu_image = $homepage->shiatsu_image;
+            foreach (['shiatsu', 'doin'] as $field) {
+                if (!empty($request->$field)) {
+                    $request[$field . '_image'] = $this->uploadFile($request->$field);
+                }
             }
 
-            if ($request->hasFile('doin_image')) {
-                $request->doin_image = $request->file('doin_image')->storeAs('images', $request->file('doin_image')->getClientOriginalName());
-            } else {
-                $request->shiatsu_image = $homepage->doin_image;
-            }
+//            dd($request);
 
             unset($request['_token']);
 
@@ -75,5 +72,11 @@ class HomeController extends Controller
             session()->flash('message', 'Informations de la page d\'accueil sauvegardés avec succès');
             return redirect()->route('admin.homepage');
         }
+    }
+
+    private function uploadFile($file) {
+        $filename = $file->getClientOriginalName();
+        $path = $file->storeAs('public/homepage', $filename);
+        return '/' . str_replace('public', 'storage', $path);
     }
 }

@@ -163,13 +163,15 @@
                 aria-labelledby="shiatsu-tab"
             >
                 <div class="form-group row">
-                    <label class="col-md-4 col-form-label" for="shiatsu_image">Illustration du Shiatsu</label>
+                    <label class="col-md-4 col-form-label" for="shiatsu">Illustration du Shiatsu</label>
                     <div class="col-md-4">
-                        <input type="file" name="shiatsu_image" class="form-control-file" id="shiatsu_image" />
+                        <input type="file" name="shiatsu" class="form-control-file" id="shiatsu_image" />
                     </div>
                 </div>
 
-                <div class="preview-shiatsu"></div>
+                <div class="preview-shiatsu">
+                    <img src="{{ $homepage->shiatsu_image }}" alt="">
+                </div>
 
                 <div class="form-group row">
                     <label class="col-md-4 col-form-label" for="shiatsu_text">Description du Shiatsu</label>
@@ -185,13 +187,15 @@
                 aria-labelledby="doin-tab"
             >
                 <div class="form-group row">
-                    <label class="col-md-4 col-form-label" for="doin_image">Illustration du Do In</label>
+                    <label class="col-md-4 col-form-label" for="doin">Illustration du Do In</label>
                     <div class="col-md-4">
-                        <input type="file" name="doin_image" class="form-control-file" id="doin_image" />
+                        <input type="file" name="doin" class="form-control-file" id="doin_image" />
                     </div>
                 </div>
 
-                <div class="preview-doin"></div>
+                <div class="preview-doin">
+                    <img src="{{ $homepage->doin_image }}" alt="">
+                </div>
 
                 <div class="form-group row">
                     <label class="col-md-4 col-form-label" for="doin_text">Description du Do In</label>
