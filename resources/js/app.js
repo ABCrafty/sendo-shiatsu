@@ -79,3 +79,37 @@ $('tr .btn-danger').on('click', function() {
     $id = $(this).parent().parent().attr('data-id');
     $('#confirmDelete').modal();
 });
+
+/* GESTION DES CITATIONS */
+
+$('#new').submit(function(e) {
+    e.preventDefault();
+
+    let formData = new FormData();
+    formData.append('title', document.getElementById('c_title').value);
+    formData.append('author', document.getElementById('c_author').value);
+    formData.append('content', document.getElementById('c_content').value);
+
+    $.post('/admin/temoignage', {
+        title: document.getElementById('c_title').value,
+        author: document.getElementById('c_author').value,
+        content: document.getElementById('c_content').value
+    })
+        .done(function(data) {
+            $('table.witness tbody').append(
+                '<tr data-id="' + data.id +'">' +
+                `<td>${data.title}</td>` +
+                `<td>${data.content}</td>` +
+                `<td>${data.created_at}</td>` +
+                `<td>${data.created_at}</td>` +
+                '<td>' +
+                    '<button class="btn btn-warning"><i class="fas fa-edit"></i></button>' +
+                    '<button class="btn btn-danger"><i class="fas fa-trash"></i></button>' +
+
+                '</td>' +
+                '</tr>'
+            );
+
+            $('#newCitation').modal('hide')
+        })
+});

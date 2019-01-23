@@ -19,6 +19,8 @@
 
         @endif
 
+        <h4>Informations de la page d'accueil</h4>
+
         <ul class="nav nav-tabs" id="tabulations" role="tablist">
             <li class="nav-item">
                 <a

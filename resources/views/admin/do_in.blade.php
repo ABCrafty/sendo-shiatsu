@@ -19,6 +19,8 @@
 
         @endif
 
+        <h4>Description du Do In</h4>
+
         <!-- Premier bloc -->
         <div class="form-group row">
             <label class="col-md-4 col-form-label" for="first_title">Titre du 1er paragraphe</label>

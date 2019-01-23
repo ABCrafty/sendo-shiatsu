@@ -5,11 +5,13 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>@yield('title')</title>
+    <title>Administration | @yield('title')</title>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 
 <body class="admin">
+
+@php($route = \Request::route()->getName())
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="{{ route('dashboard.index') }}">Administration</a>
@@ -27,26 +29,26 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
+            <li class="nav-item {{ $route !== 'admin.homepage' ?: 'active' }}">
                 <a class="nav-link" href="{{ route('admin.homepage') }}">Présentation des services</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item {{ $route !== 'admin.doin.show' ?: 'active' }}">
                 <a class="nav-link" href="{{ route('admin.doin.show') }}">Présentation du Do In</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item {{ $route !== 'admin.shiatsu.show' ?: 'active' }}">
                 <a class="nav-link" href="{{ route('admin.shiatsu.show') }}">Présentation du Shiatsu</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="">Tarifs</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item {{ $route !== 'contact.index' ?: 'active' }}">
                 <a href="{{ route('contact.index') }}" class="nav-link">Messages reçus</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="">Blog</a>
             </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">Témoignages</a>
+            <li class="nav-item {{ $route !== 'admin.witness.index' ?: 'active' }}">
+                <a href="{{ route('admin.witness.index') }}" class="nav-link">Témoignages</a>
             </li>
         </ul>
         <div class="my-2 my-lg-0">
