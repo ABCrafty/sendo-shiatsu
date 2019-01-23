@@ -21,8 +21,8 @@ class CreateDoinTable extends Migration
             $table->text('second_paragraph_content');
             $table->string('third_paragraph_title');
             $table->text('third_paragraph_content');
-            $table->string('wellness');
-            $table->text('image');
+            $table->text('wellness');
+            $table->string('image');
             $table->timestamps();
         });
     }

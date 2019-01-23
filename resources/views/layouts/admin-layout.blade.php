@@ -11,24 +11,6 @@
 
 <body class="admin">
 
-@if($flash = session('message'))
-    <div class="alert alert-success alert-admin animated bounceInRight" role="alert">
-        <p>{{ $flash }}</p>
-    </div>
-@endif
-
-@if($flash = session('warning'))
-    <div class="alert alert-warning alert-admin animated bounceInRight" role="alert">
-        <p>{{ $flash }}</p>
-    </div>
-@endif
-
-@if($flash = session('danger'))
-    <div class="alert alert-danger alert-admin animated bounceInRight" role="alert">
-        <p>{{ $flash }}</p>
-    </div>
-@endif
-
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="{{ route('dashboard.index') }}">Administration</a>
     <button
@@ -47,6 +29,12 @@
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('admin.homepage') }}">Présentation des services</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('admin.doin.show') }}">Présentation du Do In</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('admin.shiatsu.show') }}">Présentation du Shiatsu</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="">Tarifs</a>
@@ -75,6 +63,24 @@
         </div>
     </div>
 </nav>
+
+@if($flash = session('message'))
+    <div class="alert alert-success alert-admin animated bounceInRight" role="alert">
+        <p>{{ $flash }}</p>
+    </div>
+@endif
+
+@if($flash = session('warning'))
+    <div class="alert alert-warning alert-admin animated bounceInRight" role="alert">
+        <p>{{ $flash }}</p>
+    </div>
+@endif
+
+@if($flash = session('danger'))
+    <div class="alert alert-danger alert-admin animated bounceInRight" role="alert">
+        <p>{{ $flash }}</p>
+    </div>
+@endif
 
 <div class="container">
 @yield('content')

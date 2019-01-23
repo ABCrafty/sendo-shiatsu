@@ -12,6 +12,17 @@ class Shiatsu extends Model
         'id'
     ];
 
+    protected $fillable = [
+        'first_paragraph_title',
+        'first_paragraph_content',
+        'second_paragraph_title',
+        'second_paragraph_content',
+        'third_paragraph_title',
+        'third_paragraph_content',
+        'wellness',
+        'image'
+    ];
+
     protected $hidden = [
 
     ];

@@ -62,8 +62,6 @@ class HomeController extends Controller
                 }
             }
 
-//            dd($request);
-
             unset($request['_token']);
 
             $homepage->fill($request->all());
