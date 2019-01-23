@@ -10526,34 +10526,6 @@ $.ajaxSetup({
     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
   }
 });
-/* GESTION DES PREVIEWS DANS LA PAGE D'ACCUEIL */
-
-$('#shiatsu_image').on('change', function (e) {
-  $('.preview-shiatsu').empty();
-  var file = e.target.files[0];
-  var reader = new FileReader();
-  var url = '';
-
-  reader.onload = function (e) {
-    url = e.target.result;
-    $('.preview-shiatsu').append("<img src=\"".concat(url, "\" />"));
-  };
-
-  reader.readAsDataURL(file);
-});
-$('#doin_image').on('change', function (e) {
-  $('.preview-doin').empty();
-  var file = e.target.files[0];
-  var reader = new FileReader();
-  var url = '';
-
-  reader.onload = function (e) {
-    url = e.target.result;
-    $('.preview-doin').append("<img src=\"".concat(url, "\" />"));
-  };
-
-  reader.readAsDataURL(file);
-});
 /* GESTION DES MESSAGES */
 
 var $id = 0;
@@ -10616,8 +10588,8 @@ $('tr .btn-danger').on('click', function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/josle/PhpstormProjects/sendo-shiatsu/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/josle/PhpstormProjects/sendo-shiatsu/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/alex/Documents/Projets/shiatsu-site/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/alex/Documents/Projets/shiatsu-site/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

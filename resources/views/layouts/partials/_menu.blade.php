@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light sendo-navbar">
     <a class="navbar-brand" href="#">
         <img src="{{ asset('') }}" width="30" height="30" class="d-inline-block align-top" alt="">
         Bootstrap

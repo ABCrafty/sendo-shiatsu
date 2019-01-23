@@ -4257,34 +4257,31 @@ h6 {
   font-family: "Indie Flower", cursive !important;
 }
 
+.sendo-navbar {
+  background: #228B22;
+  padding: 1rem 0;
+}
+
+.sendo-navbar .navbar {
+  padding: 1rem 0 0 0;
+}
+
+.sendo-navbar .navbar-brand {
+  margin-bottom: 1rem;
+}
+
+.sendo-navbar .navbar-toggler {
+  background: white;
+  margin: 0 1rem 1rem 0;
+}
+
+.sendo-navbar .navbar-collapse {
+  background: white;
+  padding: 1rem;
+}
+
 .admin .navbar {
   margin-bottom: 40px;
-}
-
-.admin .homepage #tabulations {
-  justify-content: center;
-}
-
-.admin .homepage #prestations,
-.admin .homepage #shiatsu,
-.admin .homepage #doin {
-  margin-top: 30px;
-}
-
-.admin .homepage #prestations .form-group .col-form-label,
-.admin .homepage #shiatsu .form-group .col-form-label,
-.admin .homepage #doin .form-group .col-form-label {
-  text-align: right;
-}
-
-.admin .homepage #prestations .preview-shiatsu,
-.admin .homepage #prestations .preview-doin,
-.admin .homepage #shiatsu .preview-shiatsu,
-.admin .homepage #shiatsu .preview-doin,
-.admin .homepage #doin .preview-shiatsu,
-.admin .homepage #doin .preview-doin {
-  text-align: center;
-  margin-bottom: 30px;
 }
 
 .admin .messages table {
