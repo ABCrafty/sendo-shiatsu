@@ -59,6 +59,7 @@ Route::group(['prefix' => 'admin',  'middleware' => ['role:admin']], function()
     Route::post('do-in', 'Admin\DoInController@update')->name('admin.doin.update');
 
     Route::get('temoignages', 'Admin\WitnessController@index')->name('admin.witness.index');
+    Route::get('temoignage/{id}', 'Admin\WitnessController@show')->name('admin.witness.show');
     Route::post('temoignage', 'Admin\WitnessController@store')->name('admin.witness.store');
     Route::post('temoignage/edit', 'Admin\WitnessController@update')->name('admin.witness.update');
     Route::delete('temoignage', 'Admin\WitnessController@delete')->name('admin.witness.delete');

@@ -61,7 +61,6 @@ $('#showMessage .btn-danger').on('click', () => {
 });
 
 $('#confirmDelete .btn-danger').on('click', () => {
-    console.log('click');
    $.ajax({
        url: '/admin/message',
        type: 'DELETE',
@@ -85,6 +84,32 @@ $('tr .btn-danger').on('click', function() {
 $('#new').submit(function(e) {
     e.preventDefault();
 
+    const title = document.getElementById('c_title').value;
+    const author = document.getElementById('c_author').value;
+    const content = document.getElementById('c_content').value;
+
+    if (title.length > 255 || author.length > 255 || content.length > 255) {
+
+        $('#new .modal-body').prepend(
+            '<div class="alert alert-danger"><strong>Attention : Les champs ne doivent pas contenir plus de 255 caractères</strong></div>'
+        );
+
+        if (title.length > 255) {
+            document.getElementById('c_title').classList.add('is-invalid')
+        }
+
+        if (author.length > 255) {
+            document.getElementById('c_author').classList.add('is-invalid')
+        }
+
+        if (content.length > 255) {
+            document.getElementById('c_content').classList.add('is-invalid')
+        }
+
+        return false;
+    }
+
+
     $.post('/admin/temoignage', {
         title: document.getElementById('c_title').value,
         author: document.getElementById('c_author').value,
@@ -95,7 +120,7 @@ $('#new').submit(function(e) {
                 '<tr data-id="' + data.id +'">' +
                 `<td>${data.title}</td>` +
                 `<td>${data.content}</td>` +
-                `<td>${data.created_at}</td>` +
+                `<td>${data.author}</td>` +
                 `<td>${data.created_at}</td>` +
                 '<td>' +
                     '<button class="btn btn-warning"><i class="fas fa-edit"></i></button>' +
@@ -105,6 +130,94 @@ $('#new').submit(function(e) {
                 '</tr>'
             );
 
+            $('#c_title').val('');
+            $('#c_author').val('');
+            $('#c_content').val('');
+
             $('#newCitation').modal('hide')
+        })
+});
+
+$('.btn-warning').on('click', function () {
+    $id = $(this).parent().parent().attr('data-id');
+    $.get(`/admin/temoignage/${$id}`)
+        .done(function (data) {
+            console.log(data);
+            $('#e_title').val(data.title);
+            $('#e_author').val(data.author);
+            $('#e_content').val(data.content);
+
+            $('#editCitation').modal()
+        })
+});
+
+$('#edit').submit(function(e) {
+    e.preventDefault();
+
+    const title = document.getElementById('e_title').value;
+    const author = document.getElementById('e_author').value;
+    const content = document.getElementById('e_content').value;
+
+    if (title.length > 255 || author.length > 255 || content.length > 255) {
+
+        $('#new .modal-body').prepend(
+            '<div class="alert alert-danger"><strong>Attention : Les champs ne doivent pas contenir plus de 255 caractères</strong></div>'
+        );
+
+        if (title.length > 255) {
+            document.getElementById('e_title').classList.add('is-invalid')
+        }
+
+        if (author.length > 255) {
+            document.getElementById('e_author').classList.add('is-invalid')
+        }
+
+        if (content.length > 255) {
+            document.getElementById('e_content').classList.add('is-invalid')
+        }
+
+        return false;
+    }
+
+
+    $.post('/admin/temoignage/edit', {
+        title: document.getElementById('e_title').value,
+        author: document.getElementById('e_author').value,
+        content: document.getElementById('e_content').value,
+        id: $id
+    })
+        .done(function(data) {
+            console.log(data);
+            $('table.witness tbody tr[data-id='+ data.id +']').empty().append(
+                `<td>${data.title}</td>` +
+                `<td>${data.content}</td>` +
+                `<td>${data.author}</td>` +
+                `<td>${data.created_at}</td>` +
+                '<button class="btn btn-warning"><i class="fas fa-edit"></i></button>' +
+                '<button class="btn btn-danger"><i class="fas fa-trash"></i></button>' +
+
+                '</td>'
+            );
+
+            $('#editCitation').modal('hide')
+        })
+});
+
+$('.delete').on('click', function() {
+    $id = $(this).parent().parent().attr('data-id');
+    $('#deleteCitation').modal();
+});
+
+$('#deleteCitation .btn-danger').on('click', function () {
+    $.ajax({
+        url: '/admin/temoignage',
+        type: 'DELETE',
+        data: {id: $id}
+    })
+        .done(data => {
+            if (data === 'ok') {
+                $('#deleteCitation').modal('hide');
+                $(`tr[data-id='${$id}']`).hide()
+            }
         })
 });

@@ -5,6 +5,7 @@
 @endsection
 
 @section('content')
+<h4>Citations</h4>
 <div class="col-md-12 text-right">
     <button class="btn btn-primary" data-toggle="modal" data-target="#newCitation">
         <i class="fas fa-plus"></i>
@@ -32,7 +33,7 @@
                 <button class="btn btn-warning">
                     <i class="fas fa-edit"></i>
                 </button>
-                <button class="btn btn-danger">
+                <button class="btn btn-danger delete">
                     <i class="fas fa-trash"></i>
                 </button>
             </td>
@@ -55,15 +56,15 @@
 
                     <div class="form-group row">
                         <label for="c_author">Auteur</label>
-                        <input type="text" class="form-control" id="c_author" />
+                        <textarea class="form-control" id="c_author" required ></textarea>
                     </div>
                     <div class="form-group row">
                         <label for="c_title">Titre</label>
-                        <input type="text" class="form-control" id="c_title" />
+                        <textarea class="form-control" id="c_title" required ></textarea>
                     </div>
                     <div class="form-group row">
                         <label for="c_content">Citation</label>
-                        <input type="text" class="form-control" id="c_content" />
+                        <textarea class="form-control" id="c_content" required ></textarea>
                     </div>
 
                 </div>
@@ -79,31 +80,55 @@
 <div class="modal fade" id="editCitation" tabindex="-1" role="dialog" aria-labelledby="editCitationLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
+            <form id="edit">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editCitationLabel">Editer une citation</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group row col-md-10 offset-md-1">
+                        <label for="e_author">Auteur</label>
+                        <textarea class="form-control" id="e_author" ></textarea>
+                    </div>
+                    <div class="form-group row col-md-10 offset-md-1">
+                        <label for="e_title">Titre</label>
+                        <textarea class="form-control" id="e_title" ></textarea>
+                    </div>
+                    <div class="form-group row col-md-10 offset-md-1">
+                        <label for="e_content">Citation</label>
+                        <textarea class="form-control" id="e_content" ></textarea>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                    <button type="submit" class="btn btn-primary">Enregistrer <i class="fas fa-check"></i></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="deleteCitation" tabindex="-1" role="dialog" aria-labelledby="deleteCitationLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="editCitationLabel"></h5>
+                <h5 class="modal-title" id="exampleModalLabel">Supprimer la citation ?</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <form class="col-md-10 offset-md-1" id="test">
-                    <div class="form-group row">
-                        <label for="e_author">Auteur</label>
-                        <input type="text" class="form-control" id="e_author" />
-                    </div>
-                    <div class="form-group row">
-                        <label for="e_citation">Titre</label>
-                        <input type="text" class="form-control" id="e_citation" />
-                    </div>
-                    <div class="form-group row">
-                        <label for="e_citation">Citation</label>
-                        <input type="text" class="form-control" id="e_citation" />
-                    </div>
-                </form>
+                <p>
+                    <strong>Attention :</strong>
+                    Cette action est irréversible.
+                </p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-                <button type="button" class="btn btn-primary">Enregistrer <i class="fas fa-check"></i></button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                <button type="button" class="btn btn-danger">Save changes</button>
             </div>
         </div>
     </div>
