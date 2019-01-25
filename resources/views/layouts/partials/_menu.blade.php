@@ -39,7 +39,10 @@
         </ul>
         <div class="my-2 my-lg-0">
             @if (Auth::guest())
-                <li class="nav-item"><a href="{{ route('login') }}" class="nav-link">Se connecter</a></li>
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a href="{{ route('login') }}" class="nav-link">Se connecter</a></li>
+                </ul>
+
             @else
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item dropdown">

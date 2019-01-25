@@ -42,6 +42,8 @@ Route::get('/logout', 'Auth\LoginController@destroy')->name('logout');
 Route::get('/password-request', 'Auth\LoginController@lostPassword')->name('password.request');
 Route::post('/login', 'Auth\LoginController@store')->name('login.store');
 
+Auth::routes();
+
 
 // zone admin
 Route::group(['prefix' => 'admin',  'middleware' => ['role:admin']], function()
