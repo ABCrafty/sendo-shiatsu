@@ -7,7 +7,7 @@
     <meta property="og:title" content="Sendo Shiatsu">
     <meta property="og:description" content="Massages Shiatsu à Strasbourg pour particuliers et professionnels"/>
     <meta property="og:image" content="{{ asset('images/logo.png') }}"/>
-    <meta property="og:url" content="http://www.sendo-shiatsu.com" />
+    <meta property="og:url" content="http://www.sendoshiatsu.com" />
     <meta property="og:site_name" content="Sendo Shiatsu" />
     <meta property="og:type" content="website" />
     <meta name="geo.region" content="FR" />

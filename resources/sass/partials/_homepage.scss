@@ -1,5 +1,36 @@
 .activites-home {
-  display: flex;
-  margin: 1rem 0;
-  padding: 1rem;
+  padding: 1rem 0;
+}
+
+.home-shiatsu, .home-doin {
+    text-align: center;
+    margin-bottom: 1rem;
+    padding: 0 1rem;
+    min-height: 260px;
+}
+
+.prestation-title {
+    text-align: center;
+    padding: 0.5rem;
+}
+
+.prestations-home {
+
+    padding: 1rem;
+    color: white;
+    text-align: center;
+}
+
+.prestation {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background: $primary-color;
+
+    p {
+        text-align: justify;
+    }
+
+    button {
+        width: 100%;
+    }
 }
