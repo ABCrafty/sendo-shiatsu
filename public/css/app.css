@@ -4255,11 +4255,14 @@ h5,
 h6 {
   margin: 0 !important;
   font-family: "Indie Flower", cursive !important;
+  font-size: 2rem;
 }
+
+/* Navigation */
 
 .sendo-navbar {
   background: #228B22;
-  padding: 1rem 0;
+  padding: 1rem 0 0 0;
 }
 
 .sendo-navbar .navbar {
@@ -4267,7 +4270,8 @@ h6 {
 }
 
 .sendo-navbar .navbar-brand {
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
+  color: white;
 }
 
 .sendo-navbar .navbar-toggler {
@@ -4280,8 +4284,141 @@ h6 {
   padding: 1rem;
 }
 
+/* Footer */
+
+.footer-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  min-height: 200px;
+}
+
+.footer-social {
+  flex-direction: row;
+}
+
+.footer-social p {
+  padding: 1rem;
+}
+
+.footer-social p .fab {
+  font-size: 2rem;
+}
+
+.green-block {
+  background: #228B22;
+  text-align: center;
+  color: white;
+}
+
+.green-block a {
+  display: block;
+  color: white;
+  text-decoration: none;
+}
+
+.white-block {
+  background: white;
+  text-align: center;
+  color: #228B22;
+}
+
+.white-block a {
+  display: block;
+  color: #228B22;
+  text-decoration: none;
+}
+
+.logo-block {
+  display: none;
+}
+
+.img-footer-container {
+  width: 200px;
+}
+
+.img-footer-container img {
+  width: 100%;
+}
+
+/* Buttons */
+
+.btn-custom-green {
+  padding: 1rem 2rem;
+  background: #228B22;
+  color: white;
+}
+
+.btn-custom-green:hover {
+  background: white;
+  color: #228B22;
+  border: 1px solid #228B22;
+}
+
+.btn-custom-green:focus {
+  background: white;
+  color: #228B22;
+  border: 1px solid #228B22;
+}
+
+.btn-custom-white {
+  background: white;
+  color: #228B22;
+  border: 1px solid #228B22;
+}
+
+.btn-custom-white:focus {
+  background: #228B22;
+  color: white;
+  border: 1px solid white;
+}
+
+.btn-custom-white:hover {
+  background: #228B22;
+  color: white;
+  border: 1px solid white;
+}
+
 .admin .navbar {
   margin-bottom: 40px;
+}
+
+.admin form {
+  padding-bottom: 50px;
+}
+
+.admin form .col-form-label {
+  text-align: right;
+}
+
+.admin .homepage #tabulations,
+.admin .doin #tabulations,
+.admin .shiatsu #tabulations {
+  justify-content: center;
+}
+
+.admin .homepage #prestations,
+.admin .homepage #shiatsu,
+.admin .homepage #doin,
+.admin .doin #prestations,
+.admin .doin #shiatsu,
+.admin .doin #doin,
+.admin .shiatsu #prestations,
+.admin .shiatsu #shiatsu,
+.admin .shiatsu #doin {
+  margin-top: 30px;
+}
+
+.admin .homepage .preview-shiatsu,
+.admin .homepage .preview-doin,
+.admin .doin .preview-shiatsu,
+.admin .doin .preview-doin,
+.admin .shiatsu .preview-shiatsu,
+.admin .shiatsu .preview-doin {
+  text-align: center;
+  margin-bottom: 30px;
 }
 
 .admin .messages table {
@@ -4300,10 +4437,72 @@ h6 {
   margin-top: 15px;
 }
 
+.admin .witness {
+  margin-top: 20px;
+}
+
+.admin .witness thead th:last-child {
+  width: 120px;
+}
+
 .activites-home {
-  display: flex;
-  margin: 1rem 0;
+  padding: 1rem 0;
+}
+
+.home-shiatsu,
+.home-doin {
+  text-align: center;
+  margin-bottom: 1rem;
+  padding: 0 1rem;
+  min-height: 260px;
+}
+
+.prestation-title {
+  text-align: center;
+  padding: 0.5rem;
+}
+
+.prestations-home {
   padding: 1rem;
+  color: white;
+  text-align: center;
+}
+
+.prestation {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background: #228B22;
+}
+
+.prestation p {
+  text-align: justify;
+}
+
+.prestation button {
+  width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  html,
+  body {
+    font-size: 18px;
+  }
+
+  .activites-home {
+    display: flex;
+    padding: 1rem 0 0 0;
+  }
+
+  .prestation {
+    padding: 1rem 7rem;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  html,
+  body {
+    font-size: 14px;
+  }
 }
 
 .navbar-laravel {

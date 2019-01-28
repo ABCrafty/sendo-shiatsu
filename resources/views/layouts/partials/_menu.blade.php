@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-light sendo-navbar">
     <a class="navbar-brand" href="#">
         <img src="{{ asset('') }}" width="30" height="30" class="d-inline-block align-top" alt="">
-        Bootstrap
+        Sendo Shiatsu
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -50,11 +50,7 @@
                             Username
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            @role('admin')
-                            <a class="dropdown-item" href="#">Voir mon profil</a>
-                            @endrole
                             <a class="dropdown-item" href="{{ route('logout') }}">Me déconnecter</a>
-
                         </div>
                     </li>
                 </ul>

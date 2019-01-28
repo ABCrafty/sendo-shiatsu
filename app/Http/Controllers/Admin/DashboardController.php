@@ -17,12 +17,7 @@ class DashboardController extends Controller
     public function index() {
         $articles = Posts::pluck('id');
 
-
-
-        $articlesMonth = Posts::whereMonth('created_at', date('m'))->pluck('id');
-        $articlesYear = Posts::whereYear('created_at', date('Y'))->pluck('id');
-
         return view('admin.dashboard',
-            compact('articles', 'projects', 'articlesMonth', 'articlesYear'));
+            compact('articles'));
     }
 }

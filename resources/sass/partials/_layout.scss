@@ -18,8 +18,10 @@ a {
 h1,h2,h3,h4,h5,h6 {
   margin: 0!important;
   font-family: 'Indie Flower', cursive!important;
+  font-size: 2rem;
 }
 
+/* Navigation */
 .sendo-navbar {
   background: $primary-color;
   padding: 1rem 0 0 0;
@@ -42,4 +44,100 @@ h1,h2,h3,h4,h5,h6 {
     background: white;
     padding: 1rem;
   }
+}
+/* Footer */
+
+.footer-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    min-height: 200px;
+}
+
+.footer-social {
+    flex-direction: row;
+
+    p {
+        padding: 1rem;
+
+        .fab {
+            font-size: 2rem;
+        }
+    }
+}
+
+.green-block {
+    background: $primary-color;
+    text-align: center;
+    color: white;
+
+
+    a {
+        display: block;
+        color: white;
+        text-decoration: none;
+    }
+}
+
+.white-block {
+    background: white;
+    text-align: center;
+    color: $primary-color;
+
+    a {
+        display: block;
+        color: $primary-color;
+        text-decoration: none;
+    }
+}
+
+.logo-block {
+    display: none;
+}
+
+.img-footer-container {
+    width: 200px;
+
+    img {
+        width: 100%;
+    }
+}
+
+/* Buttons */
+.btn-custom-green {
+    padding: 1rem 2rem;
+    background: $primary-color;
+    color: white;
+}
+
+.btn-custom-green:hover {
+    background: white;
+    color: $primary-color;
+    border: 1px solid $primary-color;
+}
+
+.btn-custom-green:focus {
+    background: white;
+    color: $primary-color;
+    border: 1px solid $primary-color;
+}
+
+.btn-custom-white {
+    background: white;
+    color: $primary-color;
+    border: 1px solid $primary-color;
+}
+
+.btn-custom-white:focus {
+    background: $primary-color;
+    color: white;
+    border: 1px solid white;
+}
+
+.btn-custom-white:hover {
+    background: $primary-color;
+    color: white;
+    border: 1px solid white;
 }

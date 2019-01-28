@@ -10526,6 +10526,34 @@ $.ajaxSetup({
     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
   }
 });
+/* GESTION DES PREVIEWS DANS LA PAGE D'ACCUEIL */
+
+$('#shiatsu_image').on('change', function (e) {
+  $('.preview-shiatsu').empty();
+  var file = e.target.files[0];
+  var reader = new FileReader();
+  var url = '';
+
+  reader.onload = function (e) {
+    url = e.target.result;
+    $('.preview-shiatsu').append("<img src=\"".concat(url, "\" />"));
+  };
+
+  reader.readAsDataURL(file);
+});
+$('#doin_image').on('change', function (e) {
+  $('.preview-doin').empty();
+  var file = e.target.files[0];
+  var reader = new FileReader();
+  var url = '';
+
+  reader.onload = function (e) {
+    url = e.target.result;
+    $('.preview-doin').append("<img src=\"".concat(url, "\" />"));
+  };
+
+  reader.readAsDataURL(file);
+});
 /* GESTION DES MESSAGES */
 
 var $id = 0;
@@ -10549,7 +10577,6 @@ $('#showMessage .btn-danger').on('click', function () {
   $('#confirmDelete').modal();
 });
 $('#confirmDelete .btn-danger').on('click', function () {
-  console.log('click');
   $.ajax({
     url: '/admin/message',
     type: 'DELETE',
@@ -10566,6 +10593,107 @@ $('#confirmDelete .btn-danger').on('click', function () {
 $('tr .btn-danger').on('click', function () {
   $id = $(this).parent().parent().attr('data-id');
   $('#confirmDelete').modal();
+});
+/* GESTION DES CITATIONS */
+
+$('#new').submit(function (e) {
+  e.preventDefault();
+  var title = document.getElementById('c_title').value;
+  var author = document.getElementById('c_author').value;
+  var content = document.getElementById('c_content').value;
+
+  if (title.length > 255 || author.length > 255 || content.length > 255) {
+    $('#new .modal-body').prepend('<div class="alert alert-danger"><strong>Attention : Les champs ne doivent pas contenir plus de 255 caractères</strong></div>');
+
+    if (title.length > 255) {
+      document.getElementById('c_title').classList.add('is-invalid');
+    }
+
+    if (author.length > 255) {
+      document.getElementById('c_author').classList.add('is-invalid');
+    }
+
+    if (content.length > 255) {
+      document.getElementById('c_content').classList.add('is-invalid');
+    }
+
+    return false;
+  }
+
+  $.post('/admin/temoignage', {
+    title: document.getElementById('c_title').value,
+    author: document.getElementById('c_author').value,
+    content: document.getElementById('c_content').value
+  }).done(function (data) {
+    $('table.witness tbody').append('<tr data-id="' + data.id + '">' + "<td>".concat(data.title, "</td>") + "<td>".concat(data.content, "</td>") + "<td>".concat(data.author, "</td>") + "<td>".concat(data.created_at, "</td>") + '<td>' + '<button class="btn btn-warning"><i class="fas fa-edit"></i></button>' + '<button class="btn btn-danger"><i class="fas fa-trash"></i></button>' + '</td>' + '</tr>');
+    $('#c_title').val('');
+    $('#c_author').val('');
+    $('#c_content').val('');
+    $('#newCitation').modal('hide');
+  });
+});
+$('.btn-warning').on('click', function () {
+  $id = $(this).parent().parent().attr('data-id');
+  $.get("/admin/temoignage/".concat($id)).done(function (data) {
+    console.log(data);
+    $('#e_title').val(data.title);
+    $('#e_author').val(data.author);
+    $('#e_content').val(data.content);
+    $('#editCitation').modal();
+  });
+});
+$('#edit').submit(function (e) {
+  e.preventDefault();
+  var title = document.getElementById('e_title').value;
+  var author = document.getElementById('e_author').value;
+  var content = document.getElementById('e_content').value;
+
+  if (title.length > 255 || author.length > 255 || content.length > 255) {
+    $('#new .modal-body').prepend('<div class="alert alert-danger"><strong>Attention : Les champs ne doivent pas contenir plus de 255 caractères</strong></div>');
+
+    if (title.length > 255) {
+      document.getElementById('e_title').classList.add('is-invalid');
+    }
+
+    if (author.length > 255) {
+      document.getElementById('e_author').classList.add('is-invalid');
+    }
+
+    if (content.length > 255) {
+      document.getElementById('e_content').classList.add('is-invalid');
+    }
+
+    return false;
+  }
+
+  $.post('/admin/temoignage/edit', {
+    title: document.getElementById('e_title').value,
+    author: document.getElementById('e_author').value,
+    content: document.getElementById('e_content').value,
+    id: $id
+  }).done(function (data) {
+    console.log(data);
+    $('table.witness tbody tr[data-id=' + data.id + ']').empty().append("<td>".concat(data.title, "</td>") + "<td>".concat(data.content, "</td>") + "<td>".concat(data.author, "</td>") + "<td>".concat(data.created_at, "</td>") + '<button class="btn btn-warning"><i class="fas fa-edit"></i></button>' + '<button class="btn btn-danger"><i class="fas fa-trash"></i></button>' + '</td>');
+    $('#editCitation').modal('hide');
+  });
+});
+$('.delete').on('click', function () {
+  $id = $(this).parent().parent().attr('data-id');
+  $('#deleteCitation').modal();
+});
+$('#deleteCitation .btn-danger').on('click', function () {
+  $.ajax({
+    url: '/admin/temoignage',
+    type: 'DELETE',
+    data: {
+      id: $id
+    }
+  }).done(function (data) {
+    if (data === 'ok') {
+      $('#deleteCitation').modal('hide');
+      $("tr[data-id='".concat($id, "']")).hide();
+    }
+  });
 });
 
 /***/ }),
