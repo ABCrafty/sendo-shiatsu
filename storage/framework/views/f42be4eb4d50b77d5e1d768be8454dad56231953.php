@@ -1,29 +1,27 @@
-@extends('layouts.front-layout')
+<?php $__env->startSection('title'); ?>
+    Accueil - ##parent-placeholder-3c6de1b7dd91465d437ef415f94f36afc1fbc8a8##
+<?php $__env->stopSection(); ?>
 
-@section('title')
-    Accueil - @parent
-@endsection
-
-@section('content')
+<?php $__env->startSection('content'); ?>
 
     <div class="activites-home">
         <div    class="home-shiatsu"
-                style="background-image: url('{{ $homepage->shiatsu_image }}');
+                style="background-image: url('<?php echo e($homepage->shiatsu_image); ?>');
                        background-repeat: no-repeat;
                        background-size: cover">
             <h1>Shiatsu</h1>
-            <p>{{ $homepage->shiatsu_text }}</p>
-            <a href="{{ route('front.shiatsu') }}" class="btn btn-custom-green">
+            <p><?php echo e($homepage->shiatsu_text); ?></p>
+            <a href="<?php echo e(route('front.shiatsu')); ?>" class="btn btn-custom-green">
                 Découvrez le Shiatsu
             </a>
         </div>
         <div    class="home-doin"
-                style="background-image: url('{{ $homepage->shiatsu_image }}');
+                style="background-image: url('<?php echo e($homepage->shiatsu_image); ?>');
                        background-repeat: no-repeat;
                        background-size: cover">
             <h2>Do In</h2>
-            <p>{{ $homepage->doin_text }}</p>
-            <a href="{{ route('front.doin') }}" class=" btn btn-custom-green">
+            <p><?php echo e($homepage->doin_text); ?></p>
+            <a href="<?php echo e(route('front.doin')); ?>" class=" btn btn-custom-green">
                 Découvrez le Do In
             </a>
         </div>
@@ -33,18 +31,18 @@
 
     <div class="prestations-home">
         <div class="prestation">
-            <h3>{{ $homepage->first_presta_title }}</h3>
-            <p>{{ $homepage->first_presta_content }}</p>
+            <h3><?php echo e($homepage->first_presta_title); ?></h3>
+            <p><?php echo e($homepage->first_presta_content); ?></p>
             <button class="btn btn-custom-white">En savoir plus</button>
         </div>
         <div class="prestation">
-            <h3>{{ $homepage->second_presta_title }}</h3>
-            <p>{{ $homepage->second_presta_content }}</p>
+            <h3><?php echo e($homepage->second_presta_title); ?></h3>
+            <p><?php echo e($homepage->second_presta_content); ?></p>
             <button class="btn btn-custom-white">En savoir plus</button>
         </div>
         <div class="prestation">
-            <h3>{{ $homepage->third_presta_title }}</h3>
-            <p>{{ $homepage->third_presta_content }}</p>
+            <h3><?php echo e($homepage->third_presta_title); ?></h3>
+            <p><?php echo e($homepage->third_presta_content); ?></p>
             <button class="btn btn-custom-white">Me contacter</button>
         </div>
     </div>
@@ -52,30 +50,30 @@
         et je vous répondrai dans les plus brefs délais !
     </h3>
     <div class="home-form">
-            <form action="{{ route('contact.store') }}" method="POST">
-                    @csrf
-                    @if($errors->any())
+            <form action="<?php echo e(route('contact.store')); ?>" method="POST">
+                    <?php echo csrf_field(); ?>
+                    <?php if($errors->any()): ?>
                         <div class="alert alert-warning" role="alert">
                             <ul>
-                                @foreach($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
+                                <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <li><?php echo e($error); ?></li>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </ul>
                         </div>
-                    @endif
+                    <?php endif; ?>
 
                     <div class="col-md-8 offset-md-2">
                         <div class="form-group">
                             <label for="email">Adresse email</label>
-                            <input type="email" id="email" placeholder="Adresse email" name="email" class="form-control {{ !$errors->has('email') ?: 'is-invalid' }}" required>
+                            <input type="email" id="email" placeholder="Adresse email" name="email" class="form-control <?php echo e(!$errors->has('email') ?: 'is-invalid'); ?>" required>
                         </div>
                         <div class="form-group">
                             <label for="sujet">Sujet</label>
-                            <input type="text" id="sujet" placeholder="Sujet" name="sujet" class="form-control {{ !$errors->has('sujet') ?: 'is-invalid' }}" required>
+                            <input type="text" id="sujet" placeholder="Sujet" name="sujet" class="form-control <?php echo e(!$errors->has('sujet') ?: 'is-invalid'); ?>" required>
                         </div>
                         <div class="form-group">
                             <label for="message">Message</label>
-                            <textarea id="message" placeholder="Tapez votre message..." name="message" class="form-control {{ !$errors->has('message') ?: 'is-invalid' }}" required></textarea>
+                            <textarea id="message" placeholder="Tapez votre message..." name="message" class="form-control <?php echo e(!$errors->has('message') ?: 'is-invalid'); ?>" required></textarea>
                         </div>
 
                         <div class="text-right">
@@ -103,4 +101,6 @@
 
     -->
 
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.front-layout', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>

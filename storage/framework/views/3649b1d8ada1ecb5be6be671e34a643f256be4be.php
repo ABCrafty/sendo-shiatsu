@@ -1,18 +1,18 @@
 <div class="footer-container">
     <div class="footer-block green-block logo-block">
         <div class="img-footer-container">
-            <img src="{{ asset('images/logo_sendo_shiatsu_blanc.png') }}"/>
+            <img src="<?php echo e(asset('images/logo_sendo_shiatsu_blanc.png')); ?>"/>
         </div>
     </div>
     <div class="footer-block white-block block-witness">
         <h3>Livre d'or</h3>
         <div id="carouselWitnesses" class="carousel slide witnesses" data-ride="carousel" >
             <div class="carousel-inner">
-                @foreach($witnesses as $i => $witness)
-                <div class="carousel-item @if ($i === 1) active @endif">
-                    <p class="witness-content">{{ $witness->content }}<span class="witness-author"> ~{{ $witness->author }}</span><p>
+                <?php $__currentLoopData = $witnesses; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $i => $witness): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <div class="carousel-item <?php if($i === 1): ?> active <?php endif; ?>">
+                    <p class="witness-content"><?php echo e($witness->content); ?><span class="witness-author"> ~<?php echo e($witness->author); ?></span><p>
                 </div>
-                @endforeach
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </div>
         </div>
     </div>
@@ -20,12 +20,12 @@
         <p>Blog (à venir)</p>
     </div>
     <div class="footer-block white-block">
-        <a href="{{ route('home') }}">Accueil</a>
-        <a href="{{ route('front.shiatsu') }}">Shiatsu</a>
-        <a href="{{ route('front.doin') }}">Do In</a>
+        <a href="<?php echo e(route('home')); ?>">Accueil</a>
+        <a href="<?php echo e(route('front.shiatsu')); ?>">Shiatsu</a>
+        <a href="<?php echo e(route('front.doin')); ?>">Do In</a>
         <a href="#">Prestations/Prendre rdv</a>
         <a href="#">Tarifs</a>
-        <a href="{{ route('contact.create') }}">Me contacter</a>
+        <a href="<?php echo e(route('contact.create')); ?>">Me contacter</a>
     </div>
     <div class="footer-block green-block">
         <a href="#">Politique de confidentialité</a>

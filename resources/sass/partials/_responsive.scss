@@ -5,7 +5,28 @@
     }
     .activites-home {
         display: flex;
-        padding: 1rem 0 0 0;
+        padding: 0;
+    }
+
+    .home-shiatsu, .home-doin {
+        width:49.5%;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        p {
+            min-height: 100px;
+        }
+    }
+
+    .home-shiatsu {
+        margin-right: 0.25%
+    }
+
+    .home-doin {
+        margin-left: 0.25%;
     }
 
     .prestation {
@@ -15,6 +36,82 @@
 
 @media screen and (min-width: 1000px) {
     html, body {
-        font-size: 14px;
+        font-size: 16px;
     }
+
+    .sendo-navbar {
+        display: flex;
+        align-items: flex-end;
+        background: white;
+
+        .navbar-collapse {
+            background: $primary-color;
+        }
+
+        .nav-link {
+            color: white!important;
+        }
+    }
+
+    .logo-container-mobile {
+        display: none;
+    }
+
+    .logo-container-laptop {
+        display: block;
+        width: 130px;
+        padding: 0 0 0 1rem;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .home-shiatsu, .home-doin {
+        p {
+            padding: 2rem 5rem;
+        }
+    }
+
+    .prestations-home {
+        display: flex;
+        padding: 0;
+    }
+
+    .prestation {
+        margin: 0.2%;
+        text-align: center;
+        padding: 1rem;
+        width: 33%;
+
+        p {
+            text-align: center;
+        }
+    }
+
+    .footer-container {
+        display: flex;
+    }
+
+    .logo-block {
+        display: block;
+    }
+
+    .footer-block {
+        width: 15%;
+    }
+
+    .block-witness {
+        width: 21%;
+    }
+
+    .img-footer-container {
+        width: 100%;
+    }
+
+    .footer-social {
+        flex-direction: column;
+        width: 9%;
+    }
+
 }

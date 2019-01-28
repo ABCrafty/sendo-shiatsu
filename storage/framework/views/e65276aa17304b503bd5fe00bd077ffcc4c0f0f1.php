@@ -1,11 +1,11 @@
 <nav class="navbar navbar-expand-lg navbar-light sendo-navbar">
     <div class="logo-container-laptop">
-    <a class="navbar-brand" href="{{ route('home') }}">
-        <img src="{{ asset('images/logo_sendo_shiatsu.png') }}" class="d-inline-block align-top logo-menu" alt="Sendo Shiatsu">
+    <a class="navbar-brand" href="<?php echo e(route('home')); ?>">
+        <img src="<?php echo e(asset('images/logo_sendo_shiatsu.png')); ?>" class="d-inline-block align-top logo-menu" alt="Sendo Shiatsu">
     </a>
     </div>
     <div class="logo-container-mobile">
-            <a class="navbar-brand" href="{{ route('home') }}">
+            <a class="navbar-brand" href="<?php echo e(route('home')); ?>">
                     Sendo Shiatsu
                 </a>
     </div>
@@ -16,10 +16,10 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('front.shiatsu') }}">Shiatsu</a>
+                <a class="nav-link" href="<?php echo e(route('front.shiatsu')); ?>">Shiatsu</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('front.doin') }}">Do In</a>
+                <a class="nav-link" href="<?php echo e(route('front.doin')); ?>">Do In</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="">Prestations/Prendre rdv</a>
@@ -31,33 +31,34 @@
                 <a class="nav-link" id="blog-nav" href="">Blog</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('contact.create') }}">Me contacter</a>
+                <a class="nav-link" href="<?php echo e(route('contact.create')); ?>">Me contacter</a>
             </li>
 
-            @role('admin')
+            <?php if (\Entrust::hasRole('admin')) : ?>
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('dashboard.index') }}">Accéder à la zone admin</a>
+                <a class="nav-link" href="<?php echo e(route('dashboard.index')); ?>">Accéder à la zone admin</a>
             </li>
-            @endrole
+            <?php endif; // Entrust::hasRole ?>
         </ul>
         <div class="my-2 my-lg-0">
-            @if (Auth::guest())
+            <?php if(Auth::guest()): ?>
                 <ul class="navbar-nav">
-                    <li class="nav-item"><a href="{{ route('login') }}" class="nav-link">Se connecter</a></li>
+                    <li class="nav-item"><a href="<?php echo e(route('login')); ?>" class="nav-link">Se connecter</a></li>
                 </ul>
 
-            @else
+            <?php else: ?>
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            {{ auth()->user()->username }}
+                            <?php echo e(auth()->user()->username); ?>
+
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('logout') }}">Me déconnecter</a>
+                            <a class="dropdown-item" href="<?php echo e(route('logout')); ?>">Me déconnecter</a>
                         </div>
                     </li>
                 </ul>
-            @endif
+            <?php endif; ?>
         </div>
     </div>
 </nav>

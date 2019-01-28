@@ -15,6 +15,16 @@ class CreatePrestationsTable extends Migration
     {
         Schema::create('prestations', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('first_prestation_title');
+            $table->text('first_prestation_content');
+            $table->string('first_prestation_image');
+            $table->text('first_prestation_horaires');
+            $table->string('second_prestation_title');
+            $table->text('second_prestation_content');
+            $table->string('second_prestation_image');
+            $table->string('third_prestation_title');
+            $table->text('third_prestation_content');
+            $table->string('third_prestation_image');
             $table->timestamps();
         });
     }
