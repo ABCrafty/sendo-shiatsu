@@ -7,37 +7,53 @@
 
 @section('content')
 
-    <div class="presentation-container">
-        <div class="presentation">
-            <h1>Shiatsu : Qu'est-ce que c'est ?</h1>
-            <div class="paragraph-presentation">
-                <p>Contenu paragraphe</p>
+    <div class="container shiatsu">
+        <div class="row">
+            <div class="col-md-9">
+                <div class="presentation">
+                    <h3>{{ $shiatsu->first_paragraph_title }}</h3>
+                    <div class="paragraph-presentation">
+                        @foreach(explode("\n", $shiatsu->first_paragraph_content) as $i => $line)
+                            @if (trim($line))
+                                {!!'<p>' . $line . '</p>' !!}
+                            @endif
+                        @endforeach
+                    </div>
+                    <div class="paragraph-presentation">
+                        <h3>{{ $shiatsu->second_paragraph_title }}</h3>
+                        @foreach(explode("\n", $shiatsu->second_paragraph_content) as $line)
+                            @if (trim($line))
+                                {!! '<p>' . $line . '</p>' !!}
+                            @endif
+                        @endforeach
+                    </div>
+                    <div class="paragraph-presentation">
+                        <h3>{{ $shiatsu->third_paragraph_title }}</h3>
+                        @foreach(explode("\n", $shiatsu->third_paragraph_content) as $line)
+                            @if (trim($line))
+                                {!! '<p>' . $line . '</p>' !!}
+                            @endif
+                        @endforeach
+                    </div>
+                </div>
             </div>
-            <div class="paragraph-presentation">
-                <h3>Titre paragraphe</h3>
-                <p>Contenu paragraphe</p>
-            </div>
-            <div class="paragraph-presentation">
-                <h3>Titre paragraphe</h3>
-                <p>Contenu paragraphe</p>
-            </div>
-        </div>
-        <div class="side-presentation">
-            <div class="presentation-image">
-                <img src="" alt="">
-            </div>
+            <div class="col-md-3 aside">
+                <div class="illustration">
+                    <img src="{{ $shiatsu->image }}" alt="{{ basename($shiatsu->image) }}">
+                </div>
 
-            <div class="wellness-list">
-                <ul>
-                    <li>Bienfait</li>
-                    <li>Bienfait</li>
-                    <li>Bienfait</li>
-                    <li>Bienfait</li>
-                    <li>Bienfait</li>
-                </ul>
-            </div>
+                <div class="wellness-list">
+                    <ul>
+                    @foreach(explode("\n", $shiatsu->wellness) as $line)
+                        <li>{{ $line }}</li>
+                    @endforeach
+                    </ul>
+                </div>
+                <div class="link text-center">
+                    <a class="btn btn-custom-green">Prendre rendez-vous</a>
+                </div>
 
-            <button class="btn">Prendre rendez-vous</button>
+            </div>
         </div>
     </div>
 

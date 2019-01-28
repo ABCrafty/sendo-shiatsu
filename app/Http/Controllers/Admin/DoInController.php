@@ -58,11 +58,12 @@ class DoInController extends Controller
             if (!$doin) {
                 $doin = new DoIn;
             }
-
-            $path = $request
-                ->file('img')
-                ->storeAs('public/do_in', $request->file('img')->getClientOriginalName());
-            $request['image'] = '/' . str_replace('public', 'storage', $path);
+            if ($request->has('img')) {
+                $path = $request
+                    ->file('img')
+                    ->storeAs('public/do_in', $request->file('img')->getClientOriginalName());
+                $request['image'] = '/' . str_replace('public', 'storage', $path);
+            }
 
             unset($request['_token']);
             $request->wellness = nl2br($request->wellness);

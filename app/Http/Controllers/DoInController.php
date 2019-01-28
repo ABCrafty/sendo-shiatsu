@@ -2,16 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Homepage;
+use App\DoIn;
 
 class DoInController extends Controller
 {
     public function index()
     {
-        $homepage = Homepage::first();
+        $doin = DoIn::first();
 
-        return view('index', compact('homepage'));
+        return view('front.doin', compact('doin'));
     }
 
     protected function clean($string) {

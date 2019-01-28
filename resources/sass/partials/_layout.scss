@@ -113,24 +113,23 @@ h1,h2,h3,h4,h5,h6 {
 .btn-custom-green {
     padding: 1rem 2rem;
     background: $primary-color;
-    color: white;
+    color: white !important;;
 
     &:hover, &:focus {
       background: white;
-      color: $primary-color;
+      color: $primary-color !important;;
       border: 1px solid $primary-color;
     }
 }
 
-
 .btn-custom-white {
     background: white;
-    color: $primary-color;
+    color: $primary-color !important;;
     border: 1px solid $primary-color;
 
   &:hover, &:focus {
     background: $primary-color;
-    color: white;
+    color: white !important;;
     border: 1px solid white;
   }
 }

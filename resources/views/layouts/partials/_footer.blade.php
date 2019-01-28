@@ -28,8 +28,8 @@
         <a href="{{ route('contact.create') }}">Me contacter</a>
     </div>
     <div class="footer-block green-block">
-            <a href="#">Politique de confidentialité</a>
-            <a href="#">Mentions légales</a>
+        <a href="#">Politique de confidentialité</a>
+        <a href="#">Mentions légales</a>
     </div>
     <div class="footer-block white-block">
         <p>Adresse</p>

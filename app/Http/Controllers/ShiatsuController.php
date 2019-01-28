@@ -12,7 +12,14 @@ class ShiatsuController extends Controller
     {
         $shiatsu = Shiatsu::first();
 
-        return view('index', compact('shiatsu'));
+        if ($shiatsu) {
+            return view('front.shiatsu', compact('shiatsu'));
+        } else {
+            session()->flash('warning', 'La page demandée n\'est pas encore prête, revenez plus tard.');
+            return redirect('/');
+        }
+
+
     }
 
     protected function clean($string) {
