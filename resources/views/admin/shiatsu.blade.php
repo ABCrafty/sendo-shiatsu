@@ -31,7 +31,7 @@
                         type="text"
                         @if($shiatsu)value="{{ $shiatsu->first_paragraph_title }}" @endif
                         placeholder="Titre"
-                        class="form-control"
+                        class="form-control {{ !$errors->has('first_paragraph_title') ?: 'is-invalid' }}"
                         required
                 />
             </div>
@@ -45,7 +45,7 @@
                         name="first_paragraph_content"
                         type="text"
                         rows="6"
-                        class="form-control"
+                        class="form-control {{ !$errors->has('first_paragraph_content') ?: 'is-invalid' }}"
                         required
                 > @if($shiatsu){{ $shiatsu->first_paragraph_content }} @endif</textarea>
             </div>
@@ -63,7 +63,7 @@
                         type="text"
                         @if($shiatsu)value="{{ $shiatsu->second_paragraph_title }}" @endif
                         placeholder="Titre"
-                        class="form-control"
+                        class="form-control {{ !$errors->has('second_paragraph_title') ?: 'is-invalid' }}"
                         required
                 />
             </div>
@@ -78,7 +78,7 @@
                         type="text"
                         rows="6"
                         placeholder="Titre"
-                        class="form-control"
+                        class="form-control {{ !$errors->has('second_paragraph_content') ?: 'is-invalid' }}"
                         required
                 > @if($shiatsu){{ $shiatsu->second_paragraph_content }} @endif</textarea>
             </div>
@@ -96,7 +96,7 @@
                         type="text"
                         @if($shiatsu)value="{{ $shiatsu->third_paragraph_title }}" @endif
                         placeholder="Titre"
-                        class="form-control"
+                        class="form-control {{ !$errors->has('third_paragraph_title') ?: 'is-invalid' }}"
                         required
                 />
             </div>
@@ -111,7 +111,7 @@
                         type="text"
                         rows="6"
                         placeholder="Titre"
-                        class="form-control"
+                        class="form-control {{ !$errors->has('third_paragraph_content') ?: 'is-invalid' }}"
                         required
                 > @if($shiatsu){{ $shiatsu->third_paragraph_content }} @endif</textarea>
             </div>
@@ -140,7 +140,7 @@
                         type="text"
                         rows="6"
                         placeholder="Hello"
-                        class="form-control"
+                        class="form-control {{ !$errors->has('wellness') ?: 'is-invalid' }}"
                         required
                 >@if($shiatsu){{ $shiatsu->wellness }} @endif</textarea>
             </div>

@@ -78,9 +78,9 @@
                             id="first_title"
                             name="first_presta_title"
                             type="text"
-                            value="{{ $homepage->first_presta_title }}"
+                            @if($homepage)value="{{ $homepage->first_presta_title }}" @endif
                             placeholder="Titre"
-                            class="form-control"
+                            class="form-control {{ !$errors->has('first_presta_title') ?: 'is-invalid' }}"
                             required
                         />
                     </div>
@@ -90,12 +90,12 @@
                     <label class="col-md-4 col-form-label" for="first_content">Description de la 1ère prestation</label>
                     <div class="col-md-4">
                         <textarea
-                            class="form-control"
+                            class="form-control {{ !$errors->has('first_presta_content') ?: 'is-invalid' }}"
                             id="first_content"
                             name="first_presta_content"
                             placeholder="Max: 255 caractères"
                             required
-                        >{{ $homepage->first_presta_content }}</textarea>
+                        >@if($homepage){{ $homepage->first_presta_content }}@endif</textarea>
                     </div>
                 </div>
 
@@ -110,9 +110,9 @@
                             id="second_title"
                             name="second_presta_title"
                             type="text"
-                            value="{{ $homepage->second_presta_title }}"
+                            @if($homepage)value="{{ $homepage->second_presta_title }}" @endif
                             placeholder="Titre"
-                            class="form-control"
+                            class="form-control {{ !$errors->has('second_presta_title') ?: 'is-invalid' }}"
                             required
                         >
                     </div>
@@ -122,12 +122,12 @@
                     <label class="col-md-4 col-form-label" for="second_content">Description de la 2ème prestation</label>
                     <div class="col-md-4">
                         <textarea
-                            class="form-control"
+                            class="form-control {{ !$errors->has('second_presta_content') ?: 'is-invalid' }}"
                             id="second_content"
                             name="second_presta_content"
                             placeholder="Max: 255 caractères"
                             required
-                        >{{ $homepage->second_presta_content }}</textarea>
+                        >@if($homepage){{ $homepage->second_presta_content }}@endif</textarea>
                     </div>
                 </div>
 
@@ -142,9 +142,9 @@
                             id="third_title"
                             name="third_presta_title"
                             type="text"
-                            value="{{ $homepage->third_presta_title }}"
+                            @if($homepage)value="{{ $homepage->third_presta_title }}" @endif
                             placeholder="Titre"
-                            class="form-control"
+                            class="form-control {{ !$errors->has('third_presta_title') ?: 'is-invalid' }}"
                         >
 
                     </div>
@@ -154,12 +154,12 @@
                     <label class="col-md-4 col-form-label" for="third_content">Description de la 3ème prestation</label>
                     <div class="col-md-4">
                         <textarea
-                            class="form-control"
+                            class="form-control {{ !$errors->has('third_presta_content') ?: 'is-invalid' }}"
                             id="third_content"
                             name="third_presta_content"
                             placeholder="Max: 255 caractères"
                             required
-                        >{{ $homepage->third_presta_content }}</textarea>
+                        >@if($homepage){{ $homepage->third_presta_content }}@endif</textarea>
                     </div>
                 </div>
             </div>
@@ -177,13 +177,19 @@
                 </div>
 
                 <div class="preview-shiatsu">
-                    <img src="{{ $homepage->shiatsu_image }}" alt="">
+                    @if($homepage)<img src="{{ $homepage->shiatsu_image }}" alt="">@endif
                 </div>
 
                 <div class="form-group row">
                     <label class="col-md-4 col-form-label" for="shiatsu_text">Description du Shiatsu</label>
                     <div class="col-md-4">
-                        <textarea class="form-control" id="shiatsu_text" name="shiatsu_text" placeholder="Max: 255 caractères" required>{{ $homepage->shiatsu_text }}</textarea>
+                        <textarea
+                            class="form-control {{ !$errors->has('shiatsu_text') ?: 'is-invalid' }}"
+                            id="shiatsu_text"
+                            name="shiatsu_text"
+                            placeholder="Max: 255 caractères"
+                            required
+                        >@if($homepage){{ $homepage->shiatsu_text }}@endif</textarea>
                     </div>
                 </div>
             </div>
@@ -201,13 +207,18 @@
                 </div>
 
                 <div class="preview-doin">
-                    <img src="{{ $homepage->doin_image }}" alt="">
+                    @if($homepage)<img src="{{ $homepage->doin_image }}" alt="">@endif
                 </div>
 
                 <div class="form-group row">
                     <label class="col-md-4 col-form-label" for="doin_text">Description du Do In</label>
                     <div class="col-md-4">
-                        <textarea class="form-control" id="doin_text" name="doin_text" placeholder="Max: 255 caractères" required>{{ $homepage->doin_text }}</textarea>
+                        <textarea
+                            class="form-control {{ !$errors->has('doin_text') ?: 'is-invalid' }}"
+                            id="doin_text"
+                            name="doin_text"
+                            placeholder="Max: 255 caractères"
+                            required>@if($homepage){{ $homepage->doin_text }}@endif</textarea>
                     </div>
                 </div>
             </div>
