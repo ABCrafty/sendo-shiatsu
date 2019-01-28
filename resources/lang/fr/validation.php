@@ -76,9 +76,9 @@ return [
         'array' => 'Le champ ":attribute" must not have more than :value items.',
     ],
     'max' => [
-        'numeric' => 'Le champ ":attribute" may not be greater than :max.',
-        'file' => 'Le champ ":attribute" may not be greater than :max kilobytes.',
-        'string' => 'Le champ ":attribute" may not be greater than :max characters.',
+        'numeric' => 'Le champ ":attribute" ne peut pas être plus grand que :max.',
+        'file' => 'Le champ ":attribute" ne peut pas être plus grand que :max kilo octets.',
+        'string' => 'Le champ ":attribute" ne peut pas être plus grand que :max caractères.',
         'array' => 'Le champ ":attribute" may not have more than :max items.',
     ],
     'mimes' => 'Le champ ":attribute" must be a file of type: :values.',

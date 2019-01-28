@@ -8,15 +8,11 @@
         <h3>Livre d'or</h3>
         <div id="carouselWitnesses" class="carousel slide witnesses" data-ride="carousel" >
             <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <p class="witness-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec aliquet in odio quis aliquam. Praesent posuere mauris nunc, ac auctor orci porta quis. Curabitur vel nisi ornare, porttitor orci eget, dictum velit. Vivamus quis eleifend eros, eu turpis duis. <span class="wtness-author">~ Auteur</span><p>
+                @foreach($witnesses as $i => $witness)
+                <div class="carousel-item @if ($i === 1) active @endif">
+                    <p class="witness-content">{{ $witness->content }}<span class="witness-author"> ~{{ $witness->author }}</span><p>
                 </div>
-                <div class="carousel-item">
-                    <p class="witness-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec aliquet in odio quis aliquam. Praesent posuere mauris nunc, ac auctor orci porta quis. Curabitur vel nisi ornare, porttitor orci eget, dictum velit. Vivamus quis eleifend eros, eu turpis duis. <span class="wtness-author">~ Auteur</span><p>
-                </div>
-                <div class="carousel-item">
-                    <p class="witness-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec aliquet in odio quis aliquam. Praesent posuere mauris nunc, ac auctor orci porta quis. Curabitur vel nisi ornare, porttitor orci eget, dictum velit. Vivamus quis eleifend eros, eu turpis duis. <span class="wtness-author">~ Auteur</span><p>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>
@@ -24,12 +20,12 @@
         <p>Blog (à venir)</p>
     </div>
     <div class="footer-block white-block">
-        <a href="#">Accueil</a>
-        <a href="#">Shiatsu</a>
-        <a href="#">Do In</a>
+        <a href="{{ route('home') }}">Accueil</a>
+        <a href="{{ route('front.shiatsu') }}">Shiatsu</a>
+        <a href="{{ route('front.doin') }}">Do In</a>
         <a href="#">Prestations/Prendre rdv</a>
         <a href="#">Tarifs</a>
-        <a href="#">Me contacter</a>
+        <a href="{{ route('contact.create') }}">Me contacter</a>
     </div>
     <div class="footer-block green-block">
             <a href="#">Politique de confidentialité</a>

@@ -59,6 +59,7 @@
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{{ route('logout') }}">Déconnexion</a>
+                        <a class="dropdown-item" href="{{ route('home') }}">Retour au site</a>
                     </div>
                 </li>
             </ul>

@@ -21,8 +21,8 @@ class HomeController extends Controller
     public function update (Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'shiatsu_text' => 'required|max:150',
-            'doin_text' => 'required|max:150',
+            'shiatsu_text' => 'required|max:255',
+            'doin_text' => 'required|max:255',
             'first_presta_title' => 'required|max:150',
             'first_presta_content' => 'required|max:255',
             'second_presta_title' => 'required|max:150',

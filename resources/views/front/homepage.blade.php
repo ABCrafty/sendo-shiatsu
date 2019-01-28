@@ -9,17 +9,17 @@
     <div class="activites-home">
         <div class="home-shiatsu">
             <h1>Shiatsu</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec aliquet in odio quis aliquam. Praesent posuere mauris nunc, ac auctor orci porta quis. Curabitur vel nisi ornare, porttitor orci eget, dictum velit. Vivamus quis eleifend eros, eu turpis duis.</p>
-            <button class="btn btn-custom-green">
+            <p>{{ $homepage->shiatsu_text }}</p>
+            <a href="{{ route('front.shiatsu') }}" class="btn btn-custom-green">
                 Découvrez le Shiatsu
-            </button>
+            </a>
         </div>
         <div class="home-doin">
             <h2>Do In</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec aliquet in odio quis aliquam. Praesent posuere mauris nunc, ac auctor orci porta quis. Curabitur vel nisi ornare, porttitor orci eget, dictum velit. Vivamus quis eleifend eros, eu turpis duis.</p>
-            <button class=" btn btn-custom-green">
+            <p>{{ $homepage->doin_text }}</p>
+            <a href="{{ route('front.doin') }}" class=" btn btn-custom-green">
                 Découvrez le Do In
-            </button>
+            </a>
         </div>
     </div> <!-- activites-home -->
 
@@ -27,18 +27,18 @@
 
     <div class="prestations-home">
         <div class="prestation">
-            <h3>A domicile</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec aliquet in odio quis aliquam. Praesent posuere mauris nunc, ac auctor orci porta quis. Curabitur vel nisi ornare, porttitor orci eget, dictum velit. Vivamus quis eleifend eros, eu turpis duis.</p>
+            <h3>{{ $homepage->first_presta_title }}</h3>
+            <p>{{ $homepage->first_presta_content }}</p>
             <button class="btn btn-custom-white">Prendre rendez-vous</button>
         </div>
         <div class="prestation">
-            <h3>Centre de pratique</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec aliquet in odio quis aliquam. Praesent posuere mauris nunc, ac auctor orci porta quis. Curabitur vel nisi ornare, porttitor orci eget, dictum velit. Vivamus quis eleifend eros, eu turpis duis.</p>
+            <h3>{{ $homepage->second_presta_title }}</h3>
+            <p>{{ $homepage->second_presta_content }}</p>
             <button class="btn btn-custom-white">Prendre rendez-vous</button>
         </div>
         <div class="prestation">
-            <h3>Entreprises</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec aliquet in odio quis aliquam. Praesent posuere mauris nunc, ac auctor orci porta quis. Curabitur vel nisi ornare, porttitor orci eget, dictum velit. Vivamus quis eleifend eros, eu turpis duis.</p>
+            <h3>{{ $homepage->third_presta_title }}</h3>
+            <p>{{ $homepage->third_presta_content }}</p>
             <button class="btn btn-custom-white">Me contacter</button>
         </div>
     </div>

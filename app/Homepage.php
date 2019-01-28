@@ -14,7 +14,7 @@ class Homepage extends Model
         'second_presta_title',
         'second_presta_content',
         'third_presta_title',
-        'first_presta_content',
+        'third_presta_content',
         'shiatsu_text',
         'shiatsu_image',
         'doin_text',

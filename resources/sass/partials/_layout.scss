@@ -13,6 +13,10 @@ p {
 a {
   text-decoration: none;
   font-family: 'Alegreya', serif;
+
+  &.btn {
+    font-family: inherit;
+  }
 }
 
 h1,h2,h3,h4,h5,h6 {
@@ -110,34 +114,23 @@ h1,h2,h3,h4,h5,h6 {
     padding: 1rem 2rem;
     background: $primary-color;
     color: white;
+
+    &:hover, &:focus {
+      background: white;
+      color: $primary-color;
+      border: 1px solid $primary-color;
+    }
 }
 
-.btn-custom-green:hover {
-    background: white;
-    color: $primary-color;
-    border: 1px solid $primary-color;
-}
-
-.btn-custom-green:focus {
-    background: white;
-    color: $primary-color;
-    border: 1px solid $primary-color;
-}
 
 .btn-custom-white {
     background: white;
     color: $primary-color;
     border: 1px solid $primary-color;
-}
 
-.btn-custom-white:focus {
+  &:hover, &:focus {
     background: $primary-color;
     color: white;
     border: 1px solid white;
-}
-
-.btn-custom-white:hover {
-    background: $primary-color;
-    color: white;
-    border: 1px solid white;
+  }
 }

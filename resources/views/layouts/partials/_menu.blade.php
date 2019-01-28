@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light sendo-navbar">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="{{ route('home') }}">
         <img src="{{ asset('') }}" width="30" height="30" class="d-inline-block align-top" alt="">
         Sendo Shiatsu
     </a>
@@ -10,13 +10,10 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" href="">Accueil</a>
+                <a class="nav-link" href="{{ route('front.shiatsu') }}">Shiatsu</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="">Shiatsu</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="">Do In</a>
+                <a class="nav-link" href="{{ route('front.doin') }}">Do In</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="">Prestations/Prendre rdv</a>
@@ -25,10 +22,10 @@
                 <a class="nav-link" href="">Tarifs</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('contact.create') }}">Me contacter</a>
+                <a class="nav-link" id="blog-nav" href="">Blog</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="blog-nav" href="">Blog</a>
+                <a class="nav-link" href="{{ route('contact.create') }}">Me contacter</a>
             </li>
 
             @role('admin')
@@ -47,7 +44,7 @@
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Username
+                            {{ auth()->user()->username }}
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ route('logout') }}">Me déconnecter</a>
