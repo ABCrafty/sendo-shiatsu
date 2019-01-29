@@ -1,8 +1,12 @@
 .shiatsu, .doin {
+    padding-top: 1rem;
   .aside {
     .illustration {
-      display: flex;
       justify-content: center;
+
+      img {
+          width: 100%;
+      }
     }
 
     .wellness-list {

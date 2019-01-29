@@ -16,13 +16,18 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
+                <a class="nav-link" href="{{ route('home') }}">
+                        Accueil
+                    </a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="{{ route('front.shiatsu') }}">Shiatsu</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('front.doin') }}">Do In</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="">Prestations/Prendre rdv</a>
+            <a class="nav-link" href="{{ route('front.prestations') }}">Prestations/Prendre rdv</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="">Tarifs</a>

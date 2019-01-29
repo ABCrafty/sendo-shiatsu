@@ -1,0 +1,44 @@
+.prestations-container {
+    padding: 1rem 0;
+
+    h1 {
+        padding: 0 1rem;
+    }
+}
+
+.prestations-navigation {
+    display: flex;
+
+    button {
+        width: 33%;
+        margin: 0 0.25%;
+        padding: 0.5rem;
+    }
+}
+
+.prestation-page {
+    padding: 1rem;
+    margin: 0.3rem;
+    border: 1px solid $primary-color;
+}
+
+.prestation-horaire {
+    ul {
+        list-style-type: none;
+    }
+}
+
+.prestation-illustration {
+    img {
+        width: 100%;
+        border-radius: 50%;
+    }
+
+
+}
+
+.prestation-aside {
+    button {
+        width: 100%;
+    }
+}

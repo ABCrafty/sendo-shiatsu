@@ -38,8 +38,8 @@
             <li class="nav-item <?php echo e($route !== 'admin.shiatsu.show' ?: 'active'); ?>">
                 <a class="nav-link" href="<?php echo e(route('admin.shiatsu.show')); ?>">Présentation du Shiatsu</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="">Tarifs</a>
+            <li class="nav-item <?php echo e($route !== 'admin.prices.index' ?: 'active'); ?>">
+                <a class="nav-link" href="<?php echo e(route('admin.prices.index')); ?>">Tarifs</a>
             </li>
             <li class="nav-item <?php echo e($route !== 'contact.index' ?: 'active'); ?>">
                 <a href="<?php echo e(route('contact.index')); ?>" class="nav-link">Messages reçus</a>

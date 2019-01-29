@@ -4259,7 +4259,7 @@ h5,
 h6 {
   margin: 0 !important;
   font-family: "Indie Flower", cursive !important;
-  font-size: 2rem;
+  font-size: 1.6rem;
 }
 
 /* Navigation */
@@ -4274,8 +4274,8 @@ h6 {
 }
 
 .sendo-navbar .navbar-brand {
-  margin-bottom: 0.5rem;
   color: white;
+  padding-bottom: 0;
 }
 
 .sendo-navbar .navbar-toggler {
@@ -4293,12 +4293,16 @@ h6 {
 }
 
 .logo-container-mobile {
-  padding: 0 1rem;
+  padding: 0 1rem 1rem;
 }
 
 /* Footer */
 
-.footer-block {
+footer {
+  margin-top: 5rem;
+}
+
+footer .footer-block {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -4307,15 +4311,15 @@ h6 {
   min-height: 200px;
 }
 
-.footer-social {
+footer .footer-social {
   flex-direction: row;
 }
 
-.footer-social p {
+footer .footer-social p {
   padding: 1rem;
 }
 
-.footer-social p .fab {
+footer .footer-social p .fab {
   font-size: 2rem;
 }
 
@@ -4447,14 +4451,18 @@ h6 {
   width: 120px;
 }
 
-.activites-home {
-  padding: 1rem 0;
-}
-
 .home-shiatsu,
 .home-doin {
   text-align: center;
   margin-bottom: 1rem;
+}
+
+.white-background {
+  background: rgba(255, 255, 255, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   padding: 0 1rem;
   min-height: 260px;
 }
@@ -4484,10 +4492,33 @@ h6 {
   width: 100%;
 }
 
+.home-form-container h3 {
+  text-align: center;
+  font-size: 1rem;
+}
+
+.home-form-container button {
+  min-width: 150px;
+  padding: 0.5rem 2rem;
+}
+
+.home-form {
+  padding: 1rem 0;
+}
+
+.shiatsu,
+.doin {
+  padding-top: 1rem;
+}
+
 .shiatsu .aside .illustration,
 .doin .aside .illustration {
-  display: flex;
   justify-content: center;
+}
+
+.shiatsu .aside .illustration img,
+.doin .aside .illustration img {
+  width: 100%;
 }
 
 .shiatsu .aside .wellness-list,
@@ -4495,6 +4526,43 @@ h6 {
   margin: 30px 0;
   border: dotted green;
   padding-top: 15px;
+}
+
+.prestations-container {
+  padding: 1rem 0;
+}
+
+.prestations-container h1 {
+  padding: 0 1rem;
+}
+
+.prestations-navigation {
+  display: flex;
+}
+
+.prestations-navigation button {
+  width: 33%;
+  margin: 0 0.25%;
+  padding: 0.5rem;
+}
+
+.prestation-page {
+  padding: 1rem;
+  margin: 0.3rem;
+  border: 1px solid #228B22;
+}
+
+.prestation-horaire ul {
+  list-style-type: none;
+}
+
+.prestation-illustration img {
+  width: 100%;
+  border-radius: 50%;
+}
+
+.prestation-aside button {
+  width: 100%;
 }
 
 @media screen and (min-width: 768px) {
@@ -4511,11 +4579,6 @@ h6 {
   .home-shiatsu,
   .home-doin {
     width: 49.5%;
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
   }
 
   .home-shiatsu p,

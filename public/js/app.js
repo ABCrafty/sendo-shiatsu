@@ -10632,10 +10632,9 @@ $('#new').submit(function (e) {
     $('#newCitation').modal('hide');
   });
 });
-$('.btn-warning').on('click', function () {
+$('.witness .btn-warning').on('click', function () {
   $id = $(this).parent().parent().attr('data-id');
   $.get("/admin/temoignage/".concat($id)).done(function (data) {
-    console.log(data);
     $('#e_title').val(data.title);
     $('#e_author').val(data.author);
     $('#e_content').val(data.content);
@@ -10694,6 +10693,27 @@ $('#deleteCitation .btn-danger').on('click', function () {
       $("tr[data-id='".concat($id, "']")).hide();
     }
   });
+});
+$('.add-tarif').on('click', function () {
+  var $nb = $('.grid .form-group').length / 2;
+  $('.grid').append('<div class="form-group col-md-6">' + '<input type="text" name="price[' + $nb + '][name]" class="form-control" placeholder="ex: Tarif normal"/>' + '</div>' + '<div class="form-group col-md-6">' + '<div class="input-group">' + '<input type="text" name="price[' + $nb + '][price]" class="form-control" placeholder="ex: 25.00"/>' + '<div class="input-group-append">' + '<span class="input-group-text" id="basic-addon1">€</span>' + '</div>' + '</div>' + '</div>');
+});
+$('#toggleCenter').on('change', function () {
+  var $checked = $('input[name="center"]:checked').length;
+
+  if ($checked === 1) {
+    $('.custom-switch label').empty().append('Prestation en centre');
+  } else {
+    $('.custom-switch label').empty().append('Prestation à domicile');
+  }
+});
+$('.card button.btn-warning').on('click', function () {
+  var $id = $(this).closest('.card').attr('data-id');
+  $.get('/admin/tarif/' + $id).done(function (data) {
+    var price = JSON.parse(data.prices);
+    console.log(price);
+  });
+  $('#eTarifModal').modal();
 });
 
 /***/ }),

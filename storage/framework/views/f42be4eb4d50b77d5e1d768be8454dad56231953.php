@@ -9,21 +9,25 @@
                 style="background-image: url('<?php echo e($homepage->shiatsu_image); ?>');
                        background-repeat: no-repeat;
                        background-size: cover">
-            <h1>Shiatsu</h1>
-            <p><?php echo e($homepage->shiatsu_text); ?></p>
-            <a href="<?php echo e(route('front.shiatsu')); ?>" class="btn btn-custom-green">
-                Découvrez le Shiatsu
-            </a>
+            <div class="white-background">
+                <h1>Shiatsu</h1>
+                <p><?php echo e($homepage->shiatsu_text); ?></p>
+                <a href="<?php echo e(route('front.shiatsu')); ?>" class="btn btn-custom-green">
+                    Découvrez le Shiatsu
+                </a>
+            </div>
         </div>
         <div    class="home-doin"
                 style="background-image: url('<?php echo e($homepage->shiatsu_image); ?>');
                        background-repeat: no-repeat;
                        background-size: cover">
-            <h2>Do In</h2>
-            <p><?php echo e($homepage->doin_text); ?></p>
-            <a href="<?php echo e(route('front.doin')); ?>" class=" btn btn-custom-green">
-                Découvrez le Do In
-            </a>
+            <div class="white-background">
+                <h2>Do In</h2>
+                <p><?php echo e($homepage->doin_text); ?></p>
+                <a href="<?php echo e(route('front.doin')); ?>" class=" btn btn-custom-green">
+                    Découvrez le Do In
+                </a>
+            </div>
         </div>
     </div> <!-- activites-home -->
 
@@ -46,11 +50,12 @@
             <button class="btn btn-custom-white">Me contacter</button>
         </div>
     </div>
-    <h3>Vous avez des questions ? Vous souhaitez me contacter ? Envoyez-moi un message
-        et je vous répondrai dans les plus brefs délais !
-    </h3>
-    <div class="home-form">
-            <form action="<?php echo e(route('contact.store')); ?>" method="POST">
+
+    <div class="home-form-container">
+            <h3>Vous avez des questions ? Vous souhaitez me contacter ? Envoyez-moi un message
+                    et je vous répondrai dans les plus brefs délais !
+            </h3>
+            <form action="<?php echo e(route('contact.store')); ?>" method="POST" class="home-form">
                     <?php echo csrf_field(); ?>
                     <?php if($errors->any()): ?>
                         <div class="alert alert-warning" role="alert">
@@ -62,9 +67,9 @@
                         </div>
                     <?php endif; ?>
 
-                    <div class="col-md-8 offset-md-2">
+                    <div class="col-12 col-md-8 offset-md-2">
                         <div class="form-group">
-                            <label for="email">Adresse email</label>
+                            <label for="email">Votre adresse email</label>
                             <input type="email" id="email" placeholder="Adresse email" name="email" class="form-control <?php echo e(!$errors->has('email') ?: 'is-invalid'); ?>" required>
                         </div>
                         <div class="form-group">
@@ -77,7 +82,7 @@
                         </div>
 
                         <div class="text-right">
-                            <button type="submit" class="btn btn-primary">Envoyer</button>
+                            <button type="submit" class="btn btn-custom-green">Envoyer</button>
                         </div>
                     </div>
 
