@@ -26,6 +26,9 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 /* Navigation */
+header {
+  margin-bottom: 2rem;
+}
 .sendo-navbar {
   background: $primary-color;
   padding: 1rem 0 0 0;
@@ -35,8 +38,8 @@ h1,h2,h3,h4,h5,h6 {
   }
 
   .navbar-brand {
-    margin-bottom: 0.5rem;
     color: white;
+    padding-bottom: 0;
   }
 
   .navbar-toggler {
@@ -59,25 +62,30 @@ h1,h2,h3,h4,h5,h6 {
 }
 /* Footer */
 
-.footer-block {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem;
-    min-height: 200px;
-}
+footer {
+  margin-top: 5rem;
 
-.footer-social {
-    flex-direction: row;
 
-    p {
-        padding: 1rem;
+  .footer-block {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem;
+      min-height: 200px;
+  }
 
-        .fab {
-            font-size: 2rem;
-        }
-    }
+  .footer-social {
+      flex-direction: row;
+
+      p {
+          padding: 1rem;
+
+          .fab {
+              font-size: 2rem;
+          }
+      }
+  }
 }
 
 .green-block {

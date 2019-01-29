@@ -66,7 +66,11 @@ Route::group(['prefix' => 'admin',  'middleware' => ['role:admin']], function()
     Route::post('temoignage/edit', 'Admin\WitnessController@update')->name('admin.witness.update');
     Route::delete('temoignage', 'Admin\WitnessController@delete')->name('admin.witness.delete');
 
-    Route::resource('tarifs', 'Admin\PricesController');
+    Route::get('tarif', 'Admin\PricesController@index')->name('admin.prices.index');
+    Route::get('tarif/{id}', 'Admin\PricesController@show');
+    Route::post('tarif', 'Admin\PricesController@create')->name('admin.prices.create');
+    Route::put('tarif', 'Admin\PricesController@update')->name('admin.prices.update');
+    Route::delete('tarif', 'Admin\PricesController@destroy')->name('admin.prices.destroy');
 
     Route::resource('blog', 'Admin\PostsController');
 

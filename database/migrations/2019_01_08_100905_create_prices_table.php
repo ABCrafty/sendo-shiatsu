@@ -15,10 +15,9 @@ class CreatePricesTable extends Migration
     {
         Schema::create('prices', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('center_title');
-            $table->integer('center_price');
-            $table->string('domicile_title');
-            $table->integer('domicile_price');
+            $table->string('title');
+            $table->text('prices');
+            $table->boolean('center');
             $table->timestamps();
         });
     }
