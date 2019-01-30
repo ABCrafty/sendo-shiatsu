@@ -30,7 +30,7 @@
             <a class="nav-link" href="<?php echo e(route('front.prestations')); ?>">Prestations/Prendre rdv</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="">Tarifs</a>
+                <a class="nav-link" href="<?php echo e(route('front.prices')); ?>">Tarifs</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" id="blog-nav" href="">Blog</a>

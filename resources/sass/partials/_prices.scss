@@ -1,0 +1,33 @@
+.prices-container {
+    padding: 1rem 0;
+
+    h2, h3 {
+        color: white;
+        background: $primary-color;
+        padding: 1rem 2rem;
+    }
+}
+
+.prices {
+    margin-bottom: 1.5rem;
+}
+
+.prices-entreprises {
+    p {
+        padding: 1rem;
+        font-size: 1.2rem;
+    }
+}
+
+.price {
+    display: flex;
+
+    p {
+        width: 50%;
+        background: lightgrey;
+        margin: 0.3%!important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

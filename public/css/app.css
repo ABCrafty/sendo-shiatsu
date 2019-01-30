@@ -4529,7 +4529,6 @@ footer .footer-social p .fab {
 }
 
 .prestations-container {
-  scroll-behaviour: smooth;
   padding: 1rem 0;
 }
 
@@ -4567,6 +4566,39 @@ footer .footer-social p .fab {
 
 .prestation-aside button {
   width: 100%;
+}
+
+.prices-container {
+  padding: 1rem 0;
+}
+
+.prices-container h2,
+.prices-container h3 {
+  color: white;
+  background: #228B22;
+  padding: 1rem 2rem;
+}
+
+.prices {
+  margin-bottom: 1.5rem;
+}
+
+.prices-entreprises p {
+  padding: 1rem;
+  font-size: 1.2rem;
+}
+
+.price {
+  display: flex;
+}
+
+.price p {
+  width: 50%;
+  background: lightgrey;
+  margin: 0.3% !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @media screen and (min-width: 768px) {
