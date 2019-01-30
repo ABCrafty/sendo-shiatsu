@@ -10715,6 +10715,21 @@ $('.card button.btn-warning').on('click', function () {
   });
   $('#eTarifModal').modal();
 });
+var scroll = {
+  scrollTo: function scrollTo(e) {
+    var page = $(this).attr('href');
+
+    if ($('div.prestation-page' + page).length) {
+      e.preventDefault();
+      var speed = 750;
+      $('html, body').animate({
+        scrollTop: $(page).offset().top
+      }, speed);
+    }
+  } // scrollTo is here to make a smooth scroll when we click the link on the prestations
+
+};
+$('.js-scrollTo').on('click', scroll.scrollTo);
 
 /***/ }),
 
