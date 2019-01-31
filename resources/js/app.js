@@ -334,3 +334,17 @@ $('#dTarifModal .btn-danger').on('click', function () {
         }
     })
 });
+
+let scroll = {
+    scrollTo : function (e) {
+        let page = $(this).attr('href');
+        if ($('div.prestation-page'+page).length) {
+            e.preventDefault();
+            let speed = 750;
+            $('html, body').animate({scrollTop: $(page).offset().top}, speed);
+        }
+    }
+}
+// scrollTo is here to make a smooth scroll when we click the link on the prestations
+
+$('.js-scrollTo').on('click', scroll.scrollTo);

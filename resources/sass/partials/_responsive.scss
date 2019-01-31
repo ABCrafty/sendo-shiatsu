@@ -27,6 +27,45 @@
     .prestation {
         padding: 1rem 7rem;
     }
+
+    // page prestation
+    .prestations-container {
+        > p {
+            padding-left: 1rem;
+        }
+    }
+    .prestation-page {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        button {
+            padding: 0.5rem 1.5rem;
+        }
+    }
+
+    .prestation-presentation {
+        width: 70%;
+    }
+
+    .prestation-domicile {
+        .prestation-presentation {
+            order: 2;
+            padding-left: 1rem;
+        }
+
+        .prestation-aside {
+            order: 1;
+
+
+        }
+    }
+
+    .prestation-horaire {
+        h4 {
+            padding-bottom: 0.5rem;
+        }
+    }
 }
 
 @media screen and (min-width: 1000px) {
@@ -105,7 +144,7 @@
     }
 
     .footer-social {
-        flex-direction: column;
+        flex-direction: column!important;
         width: 9%;
     }
 

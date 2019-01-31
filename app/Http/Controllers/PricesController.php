@@ -10,9 +10,9 @@ class PricesController extends Controller
 {
     public function index()
     {
-        $prices = Prices::first();
+        $prices = Prices::all();
 
-        return view('index', compact('prices'));
+        return view('front.prices', compact('prices'));
     }
 
     protected function clean($string) {
