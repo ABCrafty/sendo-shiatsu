@@ -69,7 +69,7 @@ Route::group(['prefix' => 'admin',  'middleware' => ['role:admin']], function()
     Route::get('tarif', 'Admin\PricesController@index')->name('admin.prices.index');
     Route::get('tarif/{id}', 'Admin\PricesController@show');
     Route::post('tarif', 'Admin\PricesController@create')->name('admin.prices.create');
-    Route::put('tarif', 'Admin\PricesController@update')->name('admin.prices.update');
+    Route::post('tarif/edit', 'Admin\PricesController@update')->name('admin.prices.update');
     Route::delete('tarif', 'Admin\PricesController@destroy')->name('admin.prices.destroy');
 
     Route::resource('blog', 'Admin\PostsController');

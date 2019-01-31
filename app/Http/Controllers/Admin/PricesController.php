@@ -35,11 +35,22 @@ class PricesController extends Controller
 
     public function update (Request $request)
     {
+        $price = Prices::find($request->id);
+        $price->title = $request->title;
+        $price->center = $request->has('center');
+        $price->prices = json_encode($request->price);
 
+        $price->save();
+
+        session()->flash('message', 'Tarif enregistré avec succès');
+        return redirect()->route('admin.prices.index');
     }
 
     public function destroy (Request $request)
     {
+        $price = Prices::find($request->id);
+        $price->delete();
 
+        return response()->json('ok');
     }
 }
