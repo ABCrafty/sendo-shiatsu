@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Prestations;
 
 class PrestationsController extends Controller
 {
     public function index() {
-        return view('front.prestations');
+        $prestation = Prestations::first();
+        return view('front.prestations', compact('prestation'));
     }
 }

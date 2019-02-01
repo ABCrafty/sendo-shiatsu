@@ -72,6 +72,9 @@ Route::group(['prefix' => 'admin',  'middleware' => ['role:admin']], function()
     Route::post('tarif/edit', 'Admin\PricesController@update')->name('admin.prices.update');
     Route::delete('tarif', 'Admin\PricesController@destroy')->name('admin.prices.destroy');
 
+    Route::get('prestations', 'Admin\PrestationsController@show')->name('admin.prestation.show');
+    Route::post('prestations', 'Admin\PrestationsController@update')->name('admin.prestation.update');
+
     Route::resource('blog', 'Admin\PostsController');
 
     Route::get('message', 'Admin\ContactController@index')->name('contact.index');

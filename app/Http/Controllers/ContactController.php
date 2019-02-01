@@ -47,9 +47,12 @@ class ContactController extends Controller
             // Mail::to('jlevarato@pm.me')
             //    ->send(new NewContact($contact));
 
-            session()->flash('message', '<strong>Message envoyé !</strong><br />Vous devriez recevoir des nouvelles très bientôt.');
-            return redirect()->route('contact.create');
+            session()->flash('message', 'Message envoyé ! Vous devriez recevoir des nouvelles très bientôt.');
+            if ($request->has('home')) {
+                return redirect()->route('home');
+            } else {
+                return redirect()->route('contact.create');
+            }
         }
-
     }
 }

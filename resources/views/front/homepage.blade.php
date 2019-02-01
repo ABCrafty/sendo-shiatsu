@@ -70,6 +70,7 @@
                     @endif
 
                     <div class="col-12 col-md-8 offset-md-2">
+                        <input type="hidden" name="home" value="home" />
                         <div class="form-group">
                             <label for="email">Votre adresse email</label>
                             <input type="email" id="email" placeholder="Adresse email" name="email" class="form-control {{ !$errors->has('email') ?: 'is-invalid' }}" required>

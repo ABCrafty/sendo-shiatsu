@@ -9,7 +9,7 @@
         <div id="carouselWitnesses" class="carousel slide witnesses" data-ride="carousel" >
             <div class="carousel-inner">
                 @foreach($witnesses as $i => $witness)
-                <div class="carousel-item @if ($i === 1) active @endif">
+                <div class="carousel-item {{ $i !== 0 ?: 'active' }}">
                     <p class="witness-content">{{ $witness->content }}<span class="witness-author"> ~{{ $witness->author }}</span><p>
                 </div>
                 @endforeach

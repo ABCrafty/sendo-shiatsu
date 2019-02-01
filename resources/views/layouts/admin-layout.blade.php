@@ -41,6 +41,9 @@
             <li class="nav-item {{ $route !== 'admin.prices.index' ?: 'active' }}">
                 <a class="nav-link" href="{{ route('admin.prices.index') }}">Tarifs</a>
             </li>
+            <li class="nav-item {{ $route !== 'admin.prestation.show' ?: 'active' }}">
+                <a class="nav-link" href="{{ route('admin.prestation.show') }}">Page des prestations</a>
+            </li>
             <li class="nav-item {{ $route !== 'contact.index' ?: 'active' }}">
                 <a href="{{ route('contact.index') }}" class="nav-link">Messages reçus</a>
             </li>
