@@ -10695,8 +10695,8 @@ $('#deleteCitation .btn-danger').on('click', function () {
   });
 });
 $('.add-tarif').on('click', function () {
-  var $nb = $('.grid .form-group').length / 2;
-  $('.grid').append('<div class="form-group col-md-6">' + '<input type="text" name="price[' + $nb + '][name]" class="form-control" placeholder="ex: Tarif normal"/>' + '</div>' + '<div class="form-group col-md-6">' + '<div class="input-group">' + '<input type="text" name="price[' + $nb + '][price]" class="form-control" placeholder="ex: 25.00"/>' + '<div class="input-group-append">' + '<span class="input-group-text" id="basic-addon1">€</span>' + '</div>' + '</div>' + '</div>');
+  var $nb = $('.grid .row').length;
+  $('.grid').append('<div class="row">' + '<div class="form-group col-md-5">' + '<input type="text" name="price[' + $nb + '][name]" class="form-control" placeholder="ex: Tarif normal"/>' + '</div>' + '<div class="form-group col-md-5">' + '<div class="input-group">' + '<input type="text" name="price[' + $nb + '][price]" class="form-control" placeholder="ex: 25.00"/>' + '<div class="input-group-append">' + '<span class="input-group-text" id="basic-addon1">€</span>' + '</div>' + '</div>' + '</div>' + '<div class="col-md-1 rm-row">' + '<button type="button" class="btn btn-danger">&times;</button>' + '</div>' + '</div>');
 });
 $('#toggleCenter').on('change', function () {
   var $checked = $('input[name="center"]:checked').length;
@@ -10707,14 +10707,62 @@ $('#toggleCenter').on('change', function () {
     $('.custom-switch label').empty().append('Prestation à domicile');
   }
 });
+$('.rm-row .btn-danger').on('click', function (e) {
+  console.log('clic');
+  e.preventDefault();
+  $(this).closest('.row').remove();
+});
 $('.card button.btn-warning').on('click', function () {
   var $id = $(this).closest('.card').attr('data-id');
   $.get('/admin/tarif/' + $id).done(function (data) {
-    var price = JSON.parse(data.prices);
-    console.log(price);
+    $('#eTarifModal .modal-title').empty().append('Éditer "' + data.title + '"');
+    $('#eTarifModal input[name="title"]').val(data.title);
+    $('#eTarifModal input[name="id"]').val(data.id);
+    var prices = JSON.parse(data.prices);
+    var $grid = $('#eTarifModal .modal-body .grid');
+    var index = 0;
+    $grid.empty();
+    $.each(prices, function (i, price) {
+      $grid.append('<div class="row">' + '<div class="form-group col-md-5">' + '<input type="text" name="price[' + index + '][name]" class="form-control" value="' + price.name + '" placeholder="ex: Tarif normal" required />' + '</div>' + '<div class="form-group col-md-5">' + '<div class="input-group">' + '<input type="text" name="price[' + index + '][price]" class="form-control" value="' + price.price + '" placeholder="ex: 25.00" required />' + '<div class="input-group-append">' + '<span class="input-group-text" id="basic-addon1">€</span>' + '</div>' + '</div>' + '</div>' + '<div class="col-md-1 rm-row">' + '<button class="btn btn-danger">&times;</button>' + '</div>' + '</div>');
+      index++;
+    });
+    $grid.append('<div class="row">' + '<div class="form-group col-md-5">' + '<input type="text" name="price[' + index + '][name]" class="form-control" placeholder="ex: Tarif normal" />' + '</div>' + '<div class="form-group col-md-5">' + '<div class="input-group">' + '<input type="text" name="price[' + index + '][price]" class="form-control" placeholder="ex: 25.00" />' + '<div class="input-group-append">' + '<span class="input-group-text" id="basic-addon1">€</span>' + '</div>' + '</div>' + '</div>' + '<div class="col-md-1 rm-row">' + '<button class="btn btn-danger">&times;</button>' + '</div>' + '</div>');
   });
   $('#eTarifModal').modal();
 });
+$('.card button.btn-danger').on('click', function () {
+  $id = $(this).closest('.card').attr('data-id');
+  $('#dTarifModal').modal();
+});
+$('#dTarifModal .btn-danger').on('click', function () {
+  $.ajax({
+    method: 'DELETE',
+    url: '/admin/tarif',
+    data: {
+      id: $id
+    }
+  }).done(function (data) {
+    if (data === 'ok') {
+      $('.card[data-id="' + $id + '"]').hide();
+      $('#dTarifModal').modal('hide');
+    }
+  });
+});
+var scroll = {
+  scrollTo: function scrollTo(e) {
+    var page = $(this).attr('href');
+
+    if ($('div.prestation-page' + page).length) {
+      e.preventDefault();
+      var speed = 750;
+      $('html, body').animate({
+        scrollTop: $(page).offset().top
+      }, speed);
+    }
+  } // scrollTo is here to make a smooth scroll when we click the link on the prestations
+
+};
+$('.js-scrollTo').on('click', scroll.scrollTo);
 
 /***/ }),
 
@@ -10736,8 +10784,8 @@ $('.card button.btn-warning').on('click', function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/alex/Documents/Projets/shiatsu-site/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/alex/Documents/Projets/shiatsu-site/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/jaeger767/DEV/sendo-shiatsu/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/jaeger767/DEV/sendo-shiatsu/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

@@ -200,7 +200,7 @@
                             </div>
 
                             <div class="custom-control custom-switch">
-                                <input type="checkbox" name="center" class="custom-control-input" id="toggleCenter" checked>
+                                <input type="checkbox" name="center" class="custom-control-input" id="toggleCenter">
                                 <label class="custom-control-label" for="toggleCenter">Prestation en centre</label>
                             </div>
                         </div>

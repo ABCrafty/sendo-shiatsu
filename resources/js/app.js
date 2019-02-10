@@ -186,7 +186,6 @@ $('#edit').submit(function(e) {
         id: $id
     })
         .done(function(data) {
-            console.log(data);
             $('table.witness tbody tr[data-id='+ data.id +']').empty().append(
                 `<td>${data.title}</td>` +
                 `<td>${data.content}</td>` +
@@ -252,19 +251,22 @@ $('#toggleCenter').on('change', function() {
     }
 });
 
-$('.rm-row .btn-danger').on('click', function(e) {
-    console.log('clic');
-    e.preventDefault();
-    $(this).closest('.row').remove();
-});
-
 $('.card button.btn-warning').on('click', function () {
     const $id = $(this).closest('.card').attr('data-id');
     $.get('/admin/tarif/' + $id)
         .done(function(data) {
+            console.log(data)
             $('#eTarifModal .modal-title').empty().append('Éditer "' + data.title + '"');
             $('#eTarifModal input[name="title"]').val(data.title);
             $('#eTarifModal input[name="id"]').val(data.id);
+            if (data.center) {
+                $('#eTarifModal input[name="center"]').prop('checked', true);
+                $('#eTarifModal label[for="toggleCenter"]').empty().append('Prestation en centre')
+            } else {
+                $('#eTarifModal input[name="center"]').prop('checked', false);
+                $('#eTarifModal label[for="toggleCenter"]').empty().append('Prestation à domicile')
+            }
+            
             const prices = JSON.parse(data.prices);
             const $grid = $('#eTarifModal .modal-body .grid');
             let index = 0;
@@ -273,19 +275,19 @@ $('.card button.btn-warning').on('click', function () {
                 $grid.append(
                     '<div class="row">' +
                         '<div class="form-group col-md-5">' +
-                            '<input type="text" name="price[' + index + '][name]" class="form-control" value="'+ price.name +'" placeholder="ex: Tarif normal" required />' +
+                            '<input type="text" name="price[' + index + '][name]" class="form-control" value="'+ price.name +'" placeholder="ex: Tarif normal" />' +
                         '</div>' +
 
                         '<div class="form-group col-md-5">' +
                             '<div class="input-group">' +
-                                '<input type="text" name="price[' + index + '][price]" class="form-control" value="' + price.price + '" placeholder="ex: 25.00" required />' +
+                                '<input type="text" name="price[' + index + '][price]" class="form-control" value="' + price.price + '" placeholder="ex: 25.00" />' +
                                 '<div class="input-group-append">' +
                                     '<span class="input-group-text" id="basic-addon1">€</span>' +
                                 '</div>' +
                             '</div>' +
                         '</div>' +
                         '<div class="col-md-1 rm-row">' +
-                            '<button class="btn btn-danger">&times;</button>' +
+                            '<button type="button" class="btn btn-danger">&times;</button>' +
                         '</div>' +
                     '</div>'
                 );
@@ -307,7 +309,7 @@ $('.card button.btn-warning').on('click', function () {
                         '</div>' +
                     '</div>' +
                     '<div class="col-md-1 rm-row">' +
-                        '<button class="btn btn-danger">&times;</button>' +
+                        '<button type="button" class="btn btn-danger">&times;</button>' +
                     '</div>' +
                 '</div>'
             )
@@ -333,6 +335,16 @@ $('#dTarifModal .btn-danger').on('click', function () {
             $('#dTarifModal').modal('hide');
         }
     })
+});
+
+$(document.body).on('click', '#eTarifModal .rm-row .btn-danger', function(e) {
+    e.preventDefault();
+    $(this).closest('.row').remove();
+});
+
+$(document.body).on('click', '#cTarifModal .rm-row .btn-danger', function(e) {
+    e.preventDefault();
+    $(this).closest('.row').remove();
 });
 
 let scroll = {

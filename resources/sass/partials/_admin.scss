@@ -26,6 +26,20 @@
     }
   }
 
+  .prices {
+    .text-center {
+      margin-top: 30px;
+    }
+  }
+
+  #eTarifModal, #cTarifModal {
+    .modal-body {
+      h5, .grid {
+        padding-left: 15px;
+      }
+    }
+  }
+
   .messages {
     table {
       margin-top: 30px;

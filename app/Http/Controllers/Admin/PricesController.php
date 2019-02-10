@@ -38,7 +38,14 @@ class PricesController extends Controller
         $price = Prices::find($request->id);
         $price->title = $request->title;
         $price->center = $request->has('center');
-        $price->prices = json_encode($request->price);
+        $prices = $request->price;
+        foreach($prices as $i => $value) {
+            if (is_null($value['price']) || $value['price'] === "null") {
+                unset($prices[$i]);
+            }
+        }
+        
+        $price->prices = json_encode($prices);
 
         $price->save();
 
