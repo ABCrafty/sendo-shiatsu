@@ -3,7 +3,6 @@
 <head>
     <meta charset="utf-8">
     <meta name="description" content="Massages Shiatsu à Strasbourg pour particuliers et professionnels">
-    <meta name="keyword" content="Shiatsu, Strasbourg, Massage, Energie, Do In">
     <meta property="og:title" content="Sendo Shiatsu">
     <meta property="og:description" content="Massages Shiatsu à Strasbourg pour particuliers et professionnels"/>
     <meta property="og:image" content="{{ asset('images/logo.png') }}"/>
