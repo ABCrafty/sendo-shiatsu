@@ -23,26 +23,19 @@ class DatabaseSeeder extends Seeder
         //create users
         $mainAdmin = User::create([
             'username' => 'Alex',
-            'email' => 'someadress@example.com',
+            'email' => 'alexandre.black@protonmail.com',
             'description' => '',
-            'password' => bcrypt('password'),
+            'password' => bcrypt(env('ADMIN_PASSWORD')),
             'reset_token' => ''
         ]);
         $secondAdmin = User::create([
             'username' => 'Pierre',
-            'email' => 'randomadress@example.com',
+            'email' => 'sendoshiatsu@protonmail.com',
             'description' => '',
-            'password' => bcrypt('password'),
+            'password' => bcrypt(env('USER_PASSWORD')),
             'reset_token' => ''
         ]);
 
-        $guestOne = User::create([
-            'username' => 'Guest',
-            'email' => 'randomguest@example.com',
-            'description' => '',
-            'password' => bcrypt('password'),
-            'reset_token' => ''
-        ]);
         $this->command->warn("Users created successfully");
 
 

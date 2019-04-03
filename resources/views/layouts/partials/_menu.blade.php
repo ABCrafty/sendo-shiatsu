@@ -32,9 +32,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('front.prices') }}">Tarifs</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" id="blog-nav" href="">Blog</a>
-            </li>
+
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('contact.create') }}">Me contacter</a>
             </li>
@@ -46,17 +44,9 @@
             @endrole
         </ul>
         <div class="my-2 my-lg-0">
-            @if (Auth::guest())
-                <ul class="navbar-nav">
-                    <li class="nav-item"><a href="{{ route('login') }}" class="nav-link">Se connecter</a></li>
-                </ul>
-
-            @else
+            @if (!Auth::guest())
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            {{ auth()->user()->username }}
-                        </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ route('logout') }}">Me déconnecter</a>
                         </div>
