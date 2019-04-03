@@ -53,7 +53,6 @@
 
 <!-- Scripts -->
 <script src="{{ asset('js/app.js') }}"></script>
-<script src="{{ asset('OwlCarousel2/dist/owl.carousel.js') }}"></script>
 
 </body>
 </html>

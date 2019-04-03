@@ -8,6 +8,6 @@ class MentionsController extends Controller
 {
     public function index() {
 
-        return view('mentions');
+        return view('front.mentions');
     }
 }

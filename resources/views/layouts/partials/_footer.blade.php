@@ -28,13 +28,17 @@
         <a href="{{ route('contact.create') }}">Me contacter</a>
     </div>
     <div class="footer-block green-block">
-        <a href="#">Politique de confidentialité</a>
-        <a href="#">Mentions légales</a>
+        <a href="/mentions-legales">Mentions légales</a>
     </div>
     <div class="footer-block white-block">
-        <p>Adresse</p>
-        <p>Numéro de téléphone</p>
-        <p>Lien vers Maps<p>
+        <p>
+            Yogdeepam Center Strasbourg
+            31 rue du marché aux vins<br />
+            67000 Strasbourg<br />
+        </p>
+        <p>
+            <a href="tel:+33616719219">+33616719219</a>
+        </p>
     </div>
     <div class="footer-block footer-social green-block">
         <p><a><i class="fab fa-linkedin-in"></i></a></p>

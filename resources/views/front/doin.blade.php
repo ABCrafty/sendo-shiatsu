@@ -19,7 +19,7 @@
                     <div class="paragraph-presentation">
                         @foreach(explode("\n", $doin->first_paragraph_content) as $line)
                             @if (trim($line))
-                                {!! $paragraphs1 .= '<p>' . $line . '</p>' !!}
+                                {!! '<p>' . $line . '</p>' !!}
                             @endif
                         @endforeach
                     </div>
@@ -27,7 +27,7 @@
                         <h3>{{ $doin->second_paragraph_title }}</h3>
                         @foreach(explode("\n", $doin->second_paragraph_content) as $line)
                             @if (trim($line))
-                                {!! $paragraphs2 .= '<p>' . $line . '</p>' !!}
+                                {!! '<p>' . $line . '</p>' !!}
                             @endif
                         @endforeach
                     </div>
@@ -35,7 +35,7 @@
                         <h3>{{ $doin->third_paragraph_title }}</h3>
                         @foreach(explode("\n", $doin->third_paragraph_content) as $line)
                             @if (trim($line))
-                                {!! $paragraphs3 .= '<p>' . $line . '</p>' !!}
+                                {!! '<p>' . $line . '</p>' !!}
                             @endif
                         @endforeach
                     </div>

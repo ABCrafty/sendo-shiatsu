@@ -9,8 +9,6 @@
 
 <div class="prestations-container">
         <h1>Prestations</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc luctus sapien id turpis fringilla dictum. Maecenas vitae sem facilisis, aliquam nulla quis, egestas mauris. Donec nec aliquet odio. Sed mollis, nulla ac mattis fermentum, lacus mauris volutpat.</p>
-
         <div class="prestations-navigation">
             <a class="btn btn-custom-green js-scrollTo" href="#prestation-centre">Centre de pratique</a>
             <a class="btn btn-custom-green js-scrollTo" href="#prestation-domicile">A domicile</a>

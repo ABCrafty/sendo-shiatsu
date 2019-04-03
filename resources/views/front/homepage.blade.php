@@ -20,7 +20,7 @@
             </div>
         </div>
         <div    class="home-doin"
-                style="background-image: url('{{ $homepage->shiatsu_image }}');
+                style="background-image: url('{{ $homepage->doin_image }}');
                        background-repeat: no-repeat;
                        background-size: cover">
             <div class="white-background">
