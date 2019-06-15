@@ -2,6 +2,11 @@
     Accueil - ##parent-placeholder-3c6de1b7dd91465d437ef415f94f36afc1fbc8a8##
 <?php $__env->stopSection(); ?>
 
+<?php $__env->startSection('meta-description'); ?>
+    Découvrez les bienfaits de la thérapie par le Shiatsu, en plein centre de Strasbourg, à votre domicile
+    ou dans votre entreprise.
+<?php $__env->stopSection(); ?>
+
 <?php $__env->startSection('content'); ?>
 
     <div class="activites-home">
@@ -18,7 +23,7 @@
             </div>
         </div>
         <div    class="home-doin"
-                style="background-image: url('<?php echo e($homepage->shiatsu_image); ?>');
+                style="background-image: url('<?php echo e($homepage->doin_image); ?>');
                        background-repeat: no-repeat;
                        background-size: cover">
             <div class="white-background">
@@ -37,17 +42,17 @@
         <div class="prestation">
             <h3><?php echo e($homepage->first_presta_title); ?></h3>
             <p><?php echo e($homepage->first_presta_content); ?></p>
-            <button class="btn btn-custom-white">En savoir plus</button>
+            <button class="btn btn-custom-white" href="<?php echo e(route('front.prestations')); ?>">En savoir plus</button>
         </div>
         <div class="prestation">
             <h3><?php echo e($homepage->second_presta_title); ?></h3>
             <p><?php echo e($homepage->second_presta_content); ?></p>
-            <button class="btn btn-custom-white">En savoir plus</button>
+        <button class="btn btn-custom-white" href="<?php echo e(route('front.prestations')); ?>">En savoir plus</button>
         </div>
         <div class="prestation">
             <h3><?php echo e($homepage->third_presta_title); ?></h3>
             <p><?php echo e($homepage->third_presta_content); ?></p>
-            <button class="btn btn-custom-white">Me contacter</button>
+            <button class="btn btn-custom-white" href="<?php echo e(route('contact.create')); ?>">Me contacter</button>
         </div>
     </div>
 
@@ -55,7 +60,8 @@
             <h3>Vous avez des questions ? Vous souhaitez me contacter ? Envoyez-moi un message
                     et je vous répondrai dans les plus brefs délais !
             </h3>
-            <form action="<?php echo e(route('contact.store')); ?>" method="POST" class="home-form">
+            <div class="form-container">
+                <form action="<?php echo e(route('contact.store')); ?>" method="POST" class="home-form">
                     <?php echo csrf_field(); ?>
                     <?php if($errors->any()): ?>
                         <div class="alert alert-warning" role="alert">
@@ -68,6 +74,7 @@
                     <?php endif; ?>
 
                     <div class="col-12 col-md-8 offset-md-2">
+                        <input type="hidden" name="home" value="home" />
                         <div class="form-group">
                             <label for="email">Votre adresse email</label>
                             <input type="email" id="email" placeholder="Adresse email" name="email" class="form-control <?php echo e(!$errors->has('email') ?: 'is-invalid'); ?>" required>
@@ -87,6 +94,8 @@
                     </div>
 
                 </form>
+            </div>
+
     </div>
 
     <!-- <h3>Les derniers articles du blog</h3>

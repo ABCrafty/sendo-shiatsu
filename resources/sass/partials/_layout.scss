@@ -51,6 +51,10 @@ h1,h2,h3,h4,h5,h6 {
   }
 }
 
+.nav-link {
+  padding: 1rem 0;
+}
+
 .logo-container-laptop {
     display: none;
 }
@@ -61,7 +65,6 @@ h1,h2,h3,h4,h5,h6 {
 /* Footer */
 
 footer {
-  margin-top: 0.5rem;
 
 
   .footer-block {
@@ -127,8 +130,8 @@ footer {
 .btn-custom-green {
     padding: 1rem 2rem;
     background: $primary-color;
-    color: white !important;;
-
+    color: white !important;
+    min-height: 60px;
     &:hover, &:focus {
       background: white;
       color: $primary-color !important;;

@@ -1,27 +1,38 @@
 <!DOCTYPE html>
 <html lang="<?php echo e(str_replace('_', '-', app()->getLocale())); ?>">
 <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-142151354-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-142151354-1');
+    </script>
+
     <meta charset="utf-8">
-    <meta name="description" content="Massages Shiatsu à Strasbourg pour particuliers et professionnels">
-    <meta name="keyword" content="Shiatsu, Strasbourg, Massage, Energie, Do In">
-    <meta property="og:title" content="Sendo Shiatsu">
-    <meta property="og:description" content="Massages Shiatsu à Strasbourg pour particuliers et professionnels"/>
-    <meta property="og:image" content="<?php echo e(asset('images/logo.png')); ?>"/>
+    <meta name="description" content="<?php echo $__env->yieldContent('meta-description'); ?><?php echo $__env->yieldSection(); ?>">
+    <meta property="og:title" content="Sendo Shiatsu Strasbourg">
+    <meta property="og:description" content="<?php echo $__env->yieldContent('meta-description'); ?><?php echo $__env->yieldSection(); ?>"/>
+    <meta property="og:image" content="<?php echo e(asset('images/logo_sendo_shiatsu_color.png')); ?>"/>
+    <meta property="og:image:alt" content="logo sendo shiatsu strasbourg"/>
     <meta property="og:url" content="http://www.sendoshiatsu.com" />
     <meta property="og:site_name" content="Sendo Shiatsu" />
     <meta property="og:type" content="website" />
+    <meta property="og:locale" content="fr_FR"/>
     <meta name="geo.region" content="FR" />
     <meta name="geo.placename" content="Strasbourg" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="icon" type="image/png" href="<?php echo e(asset('images/logo.png')); ?>" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="<?php echo e(asset('images/logo_sendo_shiatsu_color.png')); ?>" />
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
 
     <title>
         <?php echo $__env->yieldContent('title'); ?>
-        Sendo Shiatsu
+        Sendo Shiatsu Strasbourg
         <?php echo $__env->yieldSection(); ?>
     </title>
 
@@ -52,7 +63,6 @@
 
 <!-- Scripts -->
 <script src="<?php echo e(asset('js/app.js')); ?>"></script>
-<script src="<?php echo e(asset('OwlCarousel2/dist/owl.carousel.js')); ?>"></script>
 
 </body>
 </html>

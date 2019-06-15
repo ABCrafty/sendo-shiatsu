@@ -2,6 +2,9 @@
     Do-In - ##parent-placeholder-3c6de1b7dd91465d437ef415f94f36afc1fbc8a8##
 <?php $__env->stopSection(); ?>
 
+<?php $__env->startSection('meta-description'); ?>
+Massages Shiatsu à Strasbourg pour particuliers et professionnels
+<?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('content'); ?>
 
@@ -17,7 +20,7 @@
                     <div class="paragraph-presentation">
                         <?php $__currentLoopData = explode("\n", $doin->first_paragraph_content); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $line): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <?php if(trim($line)): ?>
-                                <?php echo $paragraphs1 .= '<p>' . $line . '</p>'; ?>
+                                <?php echo '<p>' . $line . '</p>'; ?>
 
                             <?php endif; ?>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -26,7 +29,7 @@
                         <h3><?php echo e($doin->second_paragraph_title); ?></h3>
                         <?php $__currentLoopData = explode("\n", $doin->second_paragraph_content); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $line): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <?php if(trim($line)): ?>
-                                <?php echo $paragraphs2 .= '<p>' . $line . '</p>'; ?>
+                                <?php echo '<p>' . $line . '</p>'; ?>
 
                             <?php endif; ?>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -35,7 +38,7 @@
                         <h3><?php echo e($doin->third_paragraph_title); ?></h3>
                         <?php $__currentLoopData = explode("\n", $doin->third_paragraph_content); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $line): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <?php if(trim($line)): ?>
-                                <?php echo $paragraphs3 .= '<p>' . $line . '</p>'; ?>
+                                <?php echo '<p>' . $line . '</p>'; ?>
 
                             <?php endif; ?>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -62,4 +65,5 @@
         </div>
     </div>
 <?php $__env->stopSection(); ?>
+
 <?php echo $__env->make('layouts.front-layout', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -51,7 +51,6 @@
 
 <!-- Scripts -->
 <script src="<?php echo e(asset('js/app.js')); ?>"></script>
-<script src="<?php echo e(asset('OwlCarousel2/dist/owl.carousel.js')); ?>"></script>
 
 </body>
 </body>

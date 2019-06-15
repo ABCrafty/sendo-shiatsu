@@ -3,6 +3,8 @@
     html, body {
         font-size: 18px;
     }
+
+
     .activites-home {
         display: flex;
         padding: 0;
@@ -84,6 +86,7 @@
 
         .nav-link {
             color: white!important;
+            padding: 0;
         }
     }
 
@@ -123,6 +126,13 @@
         }
     }
 
+    .home-form {
+        width: 50%;
+    }
+
+    .contact-form-container form {
+        width: 40%;
+    }
     .footer-container {
         display: flex;
     }

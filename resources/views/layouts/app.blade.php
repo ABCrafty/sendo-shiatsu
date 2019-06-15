@@ -21,7 +21,7 @@
 
     <title>
         @yield('title')
-        Send Shiatsu
+        Sendo Shiatsu
         @show
     </title>
 

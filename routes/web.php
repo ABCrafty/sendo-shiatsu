@@ -33,8 +33,8 @@ Route::get('contact', 'ContactController@create')->name('contact.create');
 Route::post('contact', 'ContactController@store')->name('contact.store');
 
 // blog
-Route::get('blog', 'PostsController@index')->name('front.blog.index');
-Route::get('blog/{post}', 'PostsController@show')->name('front.blog.show');
+//Route::get('blog', 'PostsController@index')->name('front.blog.index');
+//Route::get('blog/{post}', 'PostsController@show')->name('front.blog.show');
 
 // Authentification
 Route::get('/login', 'Auth\LoginController@create')->name('login');

@@ -4,6 +4,11 @@
     Accueil - @parent
 @endsection
 
+@section('meta-description')
+    Découvrez les bienfaits de la thérapie par le Shiatsu, en plein centre de Strasbourg, à votre domicile
+    ou dans votre entreprise.
+@endsection
+
 @section('content')
 
     <div class="activites-home">
@@ -39,17 +44,17 @@
         <div class="prestation">
             <h3>{{ $homepage->first_presta_title }}</h3>
             <p>{{ $homepage->first_presta_content }}</p>
-            <button class="btn btn-custom-white">En savoir plus</button>
+            <button class="btn btn-custom-white" href="{{ route('front.prestations') }}">En savoir plus</button>
         </div>
         <div class="prestation">
             <h3>{{ $homepage->second_presta_title }}</h3>
             <p>{{ $homepage->second_presta_content }}</p>
-            <button class="btn btn-custom-white">En savoir plus</button>
+        <button class="btn btn-custom-white" href="{{ route('front.prestations') }}">En savoir plus</button>
         </div>
         <div class="prestation">
             <h3>{{ $homepage->third_presta_title }}</h3>
             <p>{{ $homepage->third_presta_content }}</p>
-            <button class="btn btn-custom-white">Me contacter</button>
+            <button class="btn btn-custom-white" href="{{ route('contact.create')}}">Me contacter</button>
         </div>
     </div>
 
@@ -57,7 +62,8 @@
             <h3>Vous avez des questions ? Vous souhaitez me contacter ? Envoyez-moi un message
                     et je vous répondrai dans les plus brefs délais !
             </h3>
-            <form action="{{ route('contact.store') }}" method="POST" class="home-form">
+            <div class="form-container">
+                <form action="{{ route('contact.store') }}" method="POST" class="home-form">
                     @csrf
                     @if($errors->any())
                         <div class="alert alert-warning" role="alert">
@@ -90,6 +96,8 @@
                     </div>
 
                 </form>
+            </div>
+
     </div>
 
     <!-- <h3>Les derniers articles du blog</h3>

@@ -2,6 +2,9 @@
     Shiatsu - ##parent-placeholder-3c6de1b7dd91465d437ef415f94f36afc1fbc8a8##
 <?php $__env->stopSection(); ?>
 
+<?php $__env->startSection('meta-description'); ?>
+Massages Shiatsu à Strasbourg pour particuliers et professionnels
+<?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('content'); ?>
 
@@ -51,12 +54,36 @@
                     </ul>
                 </div>
                 <div class="link text-center">
-                    <a class="btn btn-custom-green">Prendre rendez-vous</a>
+                    <button class="btn btn-custom-green"
+                            data-toggle="modal"
+                            data-target="#rdvModal">Prendre rendez-vous</button>
                 </div>
+
+                <div class="modal fade" id="rdvModal" tabindex="-1" role="dialog" aria-labelledby="rdvModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabel">Prendre rdv sur therapeutes.com</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                              Vous allez être redirigé vers mon agenda en ligne sur therapeutes.com.
+                              Acceptez-vous d'être redirigé ?>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Revenir sur le site</button>
+                              <a class="btn btn-custom-green" href="https://www.therapeutes.com/praticien-shiatsu/strasbourg/pierre-black" target="_blank">Aller sur therapeutes.com</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
 
             </div>
         </div>
     </div>
 
 <?php $__env->stopSection(); ?>
+
 <?php echo $__env->make('layouts.front-layout', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>

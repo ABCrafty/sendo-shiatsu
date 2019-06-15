@@ -1,7 +1,7 @@
 <div class="footer-container">
     <div class="footer-block green-block logo-block">
         <div class="img-footer-container">
-            <img src="{{ asset('images/logo_sendo_shiatsu_blanc.png') }}"/>
+            <img src="{{ asset('images/logo_sendo_shiatsu_blanc.png') }}" alt="logo sendo shiatsu" />
         </div>
     </div>
     <div class="footer-block white-block block-witness">
@@ -23,8 +23,8 @@
         <a href="{{ route('home') }}">Accueil</a>
         <a href="{{ route('front.shiatsu') }}">Shiatsu</a>
         <a href="{{ route('front.doin') }}">Do In</a>
-        <a href="#">Prestations/Prendre rdv</a>
-        <a href="#">Tarifs</a>
+        <a href="{{ route('front.prestations') }}">Prestations/Prendre rdv</a>
+        <a href="{{ route('front.prices') }}">Tarifs</a>
         <a href="{{ route('contact.create') }}">Me contacter</a>
     </div>
     <div class="footer-block green-block">
@@ -41,7 +41,7 @@
         </p>
     </div>
     <div class="footer-block footer-social green-block">
-        <p><a><i class="fab fa-linkedin-in"></i></a></p>
-        <p><a><i class="fab fa-facebook-f"></i></a></p>
+        <p><a href="https://www.linkedin.com/in/pierre-black3/" target="_blank"><i class="fab fa-linkedin-in"></i></a></p>
+        <p><a href="https://www.facebook.com/Sendo-Shiatsu-408042143364071/" target="_blank"><i class="fab fa-facebook-f"></i></a></p>
     </div>
 </div>

@@ -5,7 +5,8 @@
 @endsection
 
 @section('content')
-<div class="container"> <!-- Supprimer si besoin -->
+<div class="contact-form-container"> <!-- Supprimer si besoin -->
+    <h1>Contactez-moi si vous avez besoin de renseignements, je vous répondrai dans les plus brefs délais.</h1>
     <form action="{{ route('contact.store') }}" method="POST">
         @csrf
         @if($errors->any())
@@ -33,7 +34,7 @@
             </div>
 
             <div class="text-right">
-                <button type="submit" class="btn btn-primary">Envoyer</button>
+                <button type="submit" class="btn btn-custom-green">Envoyer</button>
             </div>
         </div>
 
